@@ -3,12 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="kr.kro.fatcats.allerview.ui.fragment.MainFragment"
+        android:id="@+id/cameraFragment"
+        android:name="kr.kro.fatcats.allerview.ui.fragment.CameraFragment"
+        android:label="CameraFragment"
+        tools:layout="@layout/fragment_camera" />
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="kr.kro.fatcats.allerview.ui.fragment.SplashFragment"
         android:label="SplashFragment"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_splash" />
 
 </navigation>

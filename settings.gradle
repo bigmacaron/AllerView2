@@ -13,4 +13,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "AllerView"
+include ':PermissionModule'
 include ':app'

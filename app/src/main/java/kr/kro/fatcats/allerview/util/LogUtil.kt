@@ -4,6 +4,8 @@ import android.util.Log
 
 object LogUtil {
 
+    private val logTag = "Log-AllerView"
+
     enum class LogType {
         I,
         V,
@@ -65,9 +67,8 @@ object LogUtil {
     private fun log(level : Int, message: String, type : LogType){
         if (level > DEBUG_LEVEL) {
             var tag = ""
-            val traceElement = Throwable().stackTrace[1]
+            val traceElement = Throwable().stackTrace[2]
             val temp = traceElement.className
-            var logTag = ""
             if (temp != null) {
                 val lastDotPos = temp.lastIndexOf(".")
                 if (lastDotPos + 1 >= 0 && lastDotPos + 1 <= temp.length) {

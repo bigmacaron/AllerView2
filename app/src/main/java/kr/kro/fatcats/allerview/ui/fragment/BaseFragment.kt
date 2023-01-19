@@ -6,13 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
+import kr.kro.fatcats.allerview.model.local.FragmentSet
 import kr.kro.fatcats.allerview.util.LogUtil
 import kr.kro.fatcats.allerview.util.LogUtil.DEBUG_LEVEL_2
+import kr.kro.fatcats.allerview.viewmodel.BaseViewModel
 import javax.annotation.OverridingMethodsMustInvokeSuper
 
-abstract class BaseFragment<VBinding: ViewDataBinding, VModel: ViewModel> : Fragment() {
-
+abstract class BaseFragment<VBinding: ViewDataBinding, VModel: BaseViewModel> : Fragment() {
 
     abstract fun viewModel(): VModel
 
@@ -27,6 +33,17 @@ abstract class BaseFragment<VBinding: ViewDataBinding, VModel: ViewModel> : Frag
     protected var viewBinding: VBinding? = null
     protected val viewModel: VModel by lazy {
         viewModel()
+    }
+
+    /*
+    * Extensions
+    * */
+    private fun FragmentSet.navigate() {
+//        val navOption = NavOptions.Builder()
+//            .setPopUpTo(resId, inclusive = true, saveState = false)
+//            .build()
+//        findNavController().navigate(resId, null, navOption)
+        findNavController().navigate(resId)
     }
 
     /*
@@ -55,6 +72,18 @@ abstract class BaseFragment<VBinding: ViewDataBinding, VModel: ViewModel> : Frag
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         LogUtil.d(DEBUG_LEVEL_2, javaClass.simpleName)
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED){
+                viewModel.fragmentSetFlow.collectLatest { fragment ->
+                    LogUtil.d(DEBUG_LEVEL_2,"fragmentSetFlow collectLatest fragmentSet : ${fragment.javaClass.simpleName}")
+                    fragment.navigate()
+                }
+            }
+        }
+
+
+
     }
 
     @OverridingMethodsMustInvokeSuper

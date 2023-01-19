@@ -1,9 +1,14 @@
 package kr.kro.fatcats.allerview.viewmodel
 
-import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kr.kro.fatcats.allerview.model.local.FragmentSet
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(): ViewModel(){
+class MainViewModel @Inject constructor(): BaseViewModel(){
+
+    fun moveMainFragment(){
+        setFragment(FragmentSet.MainFragment)
+    }
+
 }
