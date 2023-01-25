@@ -17,4 +17,10 @@
         android:label="SplashFragment"
         tools:layout="@layout/fragment_splash" />
 
+    <fragment
+        android:id="@+id/barcodeResultFragment"
+        android:name="kr.kro.fatcats.allerview.ui.fragment.BarcodeResultFragment"
+        android:label="BarcodeResultFragment"
+        tools:layout="@layout/fragment_barcode_result" />
+
 </navigation>

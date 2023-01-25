@@ -8,4 +8,5 @@ sealed class FragmentSet(
 ) {
     object MainFragment : FragmentSet(R.id.cameraFragment)
     object SplashFragment : FragmentSet(R.id.splashFragment)
+    object BarcodeResultFragment : FragmentSet(R.id.barcodeResultFragment)
 }
