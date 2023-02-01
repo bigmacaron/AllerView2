@@ -11,4 +11,4 @@ import okio.IOException
  * @author startwo09@gmail.com
  * @since 2023/01/25 1:10 PM
  **************************************************************************************************/
-class ANetworkException : IOException("no available network")
+class AVNetworkException : IOException("no available network")

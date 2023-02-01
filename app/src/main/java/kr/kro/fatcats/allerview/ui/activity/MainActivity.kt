@@ -7,7 +7,6 @@ import androidx.navigation.fragment.NavHostFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kr.kro.fatcats.allerview.R
 import kr.kro.fatcats.allerview.ui.fragment.CameraFragment
-import kr.kro.fatcats.allerview.util.LogUtil
 import kr.kro.fatcats.allerview.viewmodel.MainViewModel
 
 @AndroidEntryPoint

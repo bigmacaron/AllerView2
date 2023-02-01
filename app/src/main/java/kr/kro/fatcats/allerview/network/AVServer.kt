@@ -6,33 +6,34 @@ import android.net.Network
 import android.net.NetworkCapabilities
 import android.os.Build
 import androidx.viewbinding.BuildConfig
-import kr.kro.fatcats.allerview.network.exception.AErrorInterceptor
-import kr.kro.fatcats.allerview.network.exception.ANetworkException
+import kr.kro.fatcats.allerview.network.exception.AVErrorInterceptor
+import kr.kro.fatcats.allerview.network.exception.AVNetworkException
 import kr.kro.fatcats.allerview.util.LogUtil
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
-class AServer(
+class AVServer(
     context: Context,
-    baseUrl: String?,
-    api: String
+    baseUrl: String?
 ) {
 
-    val serverApi: AServerApi
+    val serverApi: AVServerApi
 
     init {
         serverApi = Retrofit.Builder()
             .baseUrl(baseUrl)
-            .client(provideOkHttpClient(context, api))
+            .client(provideOkHttpClient(context))
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(AServerApi::class.java)
+            .create(AVServerApi::class.java)
     }
 
-    private fun provideOkHttpClient(context: Context, api: String): OkHttpClient {
+    private fun provideOkHttpClient(context: Context): OkHttpClient {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level = if (BuildConfig.DEBUG)
             HttpLoggingInterceptor.Level.BASIC
@@ -41,7 +42,7 @@ class AServer(
         return OkHttpClient.Builder()
             .addInterceptor(ConnectivityInterceptor(context))
             .addInterceptor(httpLoggingInterceptor)
-            .addInterceptor(AErrorInterceptor())
+            .addInterceptor(AVErrorInterceptor())
             .build()
     }
 
@@ -74,7 +75,7 @@ class AServer(
                     proceed(request())
                 }
             } else {
-                throw ANetworkException()
+                throw AVNetworkException()
             }
         }
 

@@ -9,6 +9,10 @@ android {
     namespace 'kr.kro.fatcats.allerview'
     compileSdk 33
 
+    // Properties 선언하고 local.properties, 새로 등록된 api_key 값을 load
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
     defaultConfig {
         applicationId "kr.kro.fatcats.allerview"
         minSdk 23
@@ -35,6 +39,11 @@ android {
 
     buildFeatures {
         dataBinding true
+    }
+
+    defaultConfig {
+        // load 완료 -> api_key 값을 BuildConfig 파일에 저장
+        buildConfigField "String", "BASE_URL", properties['food_safety_korea_base_url']
     }
 }
 
@@ -100,9 +109,5 @@ dependencies {
     kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
     // OKHttp
     androidTestImplementation "com.squareup.okhttp3:mockwebserver:$okhttp_version"
-
-
-
-
 
 }

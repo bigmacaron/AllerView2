@@ -3,7 +3,7 @@ package kr.kro.fatcats.allerview.network.exception
 import okio.IOException
 import org.json.JSONObject
 
-class AServerException(
+class AVServerException(
     val body: String?,
     val code: String = body?.let {
         JSONObject(it).getString("code")
