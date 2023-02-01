@@ -6,10 +6,10 @@
     app:startDestination="@id/splashFragment">
 
     <fragment
-        android:id="@+id/cameraFragment"
-        android:name="kr.kro.fatcats.allerview.ui.fragment.CameraFragment"
-        android:label="CameraFragment"
-        tools:layout="@layout/fragment_camera" />
+        android:id="@+id/searchFragment"
+        android:name="kr.kro.fatcats.allerview.ui.fragment.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/splashFragment"

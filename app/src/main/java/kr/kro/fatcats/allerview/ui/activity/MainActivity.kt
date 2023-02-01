@@ -6,7 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kr.kro.fatcats.allerview.R
-import kr.kro.fatcats.allerview.ui.fragment.CameraFragment
+import kr.kro.fatcats.allerview.ui.fragment.SearchFragment
 import kr.kro.fatcats.allerview.viewmodel.MainViewModel
 
 @AndroidEntryPoint
@@ -17,6 +17,8 @@ class MainActivity : BaseActivity() {
         (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
     }
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,7 +26,7 @@ class MainActivity : BaseActivity() {
 
     override fun onBackPressed() {
         val fragmentLabel = nav.currentDestination?.label
-        if(fragmentLabel == CameraFragment().javaClass.simpleName){
+        if(fragmentLabel == SearchFragment().javaClass.simpleName){
             finish()
         }else{
             super.onBackPressed()
