@@ -1,4 +1,4 @@
-package kr.kro.fatcats.allerview.domain.model
+package kr.kro.fatcats.allerview.domain.model.barcodeInfo
 
 data class Row(
     val BAR_CD: String,

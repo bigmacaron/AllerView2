@@ -1,4 +1,4 @@
-package kr.kro.fatcats.allerview.domain.model
+package kr.kro.fatcats.allerview.domain.model.foodInfo
 
 data class RESULT(
     val CODE: String,

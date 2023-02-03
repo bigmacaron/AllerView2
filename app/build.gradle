@@ -42,7 +42,7 @@ android {
     }
 
     defaultConfig {
-        // load 완료 -> api_key 값을 BuildConfig 파일에 저장
+        // load 완료 -> base_url 값을 BuildConfig 파일에 저장
         buildConfigField "String", "BASE_URL", properties['food_safety_korea_base_url']
     }
 }

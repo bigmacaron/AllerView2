@@ -1,6 +1,6 @@
-package kr.kro.fatcats.allerview.domain.model
+package kr.kro.fatcats.allerview.domain.model.foodInfo
 
-data class C005(
+data class C002(
     val RESULT: RESULT,
     val row: List<Row>,
     val total_count: String
