@@ -10,12 +10,14 @@ import kotlinx.coroutines.launch
 import kr.kro.fatcats.allerview.model.event.Request
 import kr.kro.fatcats.allerview.model.local.FragmentSet
 import kr.kro.fatcats.allerview.repository.ProductRepository
+import kr.kro.fatcats.allerview.repository.RoomRepository
 import kr.kro.fatcats.allerview.util.LogUtil
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val productRepository: ProductRepository
+    private val productRepository: ProductRepository,
+    private val roomRepository : RoomRepository
 ) : BaseViewModel() {
 
     /*

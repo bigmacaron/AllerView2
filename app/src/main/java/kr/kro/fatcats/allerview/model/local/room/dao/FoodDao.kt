@@ -13,7 +13,7 @@ interface FoodDao {
     fun getAll(): List<Food>
 
     @Query("SELECT * FROM food WHERE barcode IN (:barcode)")
-    fun loadByBarcode(barcode: Long): List<Food>
+    fun loadByBarcode(barcode: Long): Food
 
 //    @Query("SELECT * FROM user WHERE first_name LIKE :first AND " +
 //            "last_name LIKE :last LIMIT 1")
