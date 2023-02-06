@@ -7,14 +7,20 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.room.Room
 import com.journeyapps.barcodescanner.CaptureManager
 import com.journeyapps.barcodescanner.DecoratedBarcodeView
 import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kr.kro.fatcats.allerview.R
 import kr.kro.fatcats.allerview.databinding.FragmentSearchBinding
 import kr.kro.fatcats.allerview.model.event.Request
+import kr.kro.fatcats.allerview.model.local.room.AppDataBase
+import kr.kro.fatcats.allerview.model.local.room.entity.Food
 import kr.kro.fatcats.allerview.util.LogUtil
 import kr.kro.fatcats.allerview.viewmodel.MainViewModel
 

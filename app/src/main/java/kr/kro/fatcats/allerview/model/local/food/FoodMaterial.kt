@@ -33,8 +33,7 @@ data class SeaFood(
     val oyster : String, //굴
     val shellfish : String,//조개류
     val crab : String, //게
-    val squid : String, //오징어
-
+    val squid : String //오징어
 )
 data class Etc(
     val sulfurousAcid : String // 아황산 (소시지등에 들어감)
