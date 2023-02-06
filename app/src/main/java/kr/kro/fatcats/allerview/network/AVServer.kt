@@ -19,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class AVServer(
     context: Context,
-    baseUrl: String?
+    baseUrl: String
 ) {
 
     val serverApi: AVServerApi
