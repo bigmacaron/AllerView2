@@ -9,14 +9,14 @@ import retrofit2.http.Url
 interface AVServerApi {
 
     // 바코드로 상품의 정보를 조회한다.
-    // http://openapi.foodsafetykorea.go.kr/api/701987a6886f4ae4b0ea/C005/json/1/1/BAR_CD="8801791947312"
+    // http://openapi.foodsafetykorea.go.kr/api/[APIKEY]/C005/json/1/1/BAR_CD="8801791947312"
     @GET
     fun getBarcodeLinkedProductInfoAsync(
         @Url url: String?
     ) : Deferred<BarcodeInfo>
 
     // 품목 번호로 음식의 상세 정보를 조회한다.
-    // http://openapi.foodsafetykorea.go.kr/api/701987a6886f4ae4b0ea/C002/json/1/1/PRDLST_REPORT_NO = 19550509001209
+    // http://openapi.foodsafetykorea.go.kr/api/[APIKEY]/C002/json/1/1/PRDLST_REPORT_NO = 19550509001209
     @GET
     fun getFoodItemRawMaterialInfoAsync(
         @Url url: String?
