@@ -6,14 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.journeyapps.barcodescanner.CaptureManager
 import com.journeyapps.barcodescanner.DecoratedBarcodeView
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import kr.kro.fatcats.allerview.R
 import kr.kro.fatcats.allerview.databinding.FragmentSearchBinding
+import kr.kro.fatcats.allerview.model.event.Request
 import kr.kro.fatcats.allerview.util.LogUtil
 import kr.kro.fatcats.allerview.viewmodel.MainViewModel
-import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -36,7 +39,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding,MainViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        requestInfoEventCollect()
         val barcodeScannerView = viewBinding?.barcodeView as DecoratedBarcodeView
         capture = CaptureManager(requireActivity(),barcodeScannerView)
         val intent = requireActivity().intent
@@ -51,9 +54,26 @@ class SearchFragment : BaseFragment<FragmentSearchBinding,MainViewModel>() {
             LogUtil.i(LogUtil.DEBUG_LEVEL_2,"barcode: $result")
             val resultString = result.text
             viewModel.setBarcode(resultString)
+            viewModel.setRequestInfoEvent(Request.BarcodeLiked(resultString))
             viewModel.moveBarcodeResultFragment()
         }
+    }
 
+    private fun requestInfoEventCollect() {
+        lifecycleScope.launch {
+            viewModel.requestEvent.collectLatest {
+                when  (it) {
+                    is Request.BarcodeLiked  -> {
+                        val temp = "http://openapi.foodsafetykorea.go.kr/api/701987a6886f4ae4b0ea/C005/json/1/1/BAR_CD="+ it.barcodeUrl
+                        viewModel.getBarcodeLinkedProductInfo(temp)
+//                        viewModel.getBarcodeLinkedProductInfo(it.barcodeUrl)
+                    }
+                    is Request.FoodCodeLiked -> {
+                        viewModel.getFoodItemRawMaterialInfo(it.foodCodeUrl)
+                    }
+                }
+            }
+        }
     }
 
     override fun onResume() {

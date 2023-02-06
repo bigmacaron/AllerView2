@@ -1,4 +1,4 @@
-package kr.kro.fatcats.allerview.domain.model.foodInfo
+package kr.kro.fatcats.allerview.model.foodInfo
 
 data class Row(
     val BSSH_NM: String,

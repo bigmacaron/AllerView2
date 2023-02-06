@@ -6,7 +6,7 @@ import android.net.Network
 import android.net.NetworkCapabilities
 import android.os.Build
 import androidx.viewbinding.BuildConfig
-import kr.kro.fatcats.allerview.network.exception.AVErrorInterceptor
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kr.kro.fatcats.allerview.network.exception.AVNetworkException
 import kr.kro.fatcats.allerview.util.LogUtil
 import okhttp3.Interceptor
@@ -15,6 +15,7 @@ import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.가gson.GsonConverterFactory
 
 
 class AVServer(
@@ -29,6 +30,7 @@ class AVServer(
             .baseUrl(baseUrl)
             .client(provideOkHttpClient(context))
             .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()
             .create(AVServerApi::class.java)
     }
@@ -42,7 +44,7 @@ class AVServer(
         return OkHttpClient.Builder()
             .addInterceptor(ConnectivityInterceptor(context))
             .addInterceptor(httpLoggingInterceptor)
-            .addInterceptor(AVErrorInterceptor())
+//            .addInterceptor(AVErrorInterceptor())
             .build()
     }
 
