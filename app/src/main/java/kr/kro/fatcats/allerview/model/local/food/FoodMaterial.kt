@@ -1,11 +1,11 @@
 package kr.kro.fatcats.allerview.model.local.food
 
 data class FoodMaterial(
-    val grainProducts : Grain,
-    val meatProducts : Meat,
-    val fruitProducts : Fruit,
-    val seafoodProducts: SeaFood,
-    val etcProducts: Etc
+    val grainProducts : Grain, // 곡물류
+    val meatProducts : Meat, //육류
+    val fruitProducts : Fruit,//과일류
+    val seafoodProducts: SeaFood,//해산물
+    val etcProducts: Etc //기타
 )
 data class Grain(
     val buckwheat : String , // 메밀
