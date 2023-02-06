@@ -18,8 +18,8 @@ class NetworkModule {
         const val BASE_URL = BuildConfig.BASE_URL
 
         // DataType
-        const val C002 = "C002"
-        const val C005 = "C005"
+        const val C002 = "C002/json/1/1/"
+        const val C005 = "C005/json/1/1/"
     }
 
     @Singleton

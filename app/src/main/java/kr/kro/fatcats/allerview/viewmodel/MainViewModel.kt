@@ -7,6 +7,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kr.kro.fatcats.allerview.BuildConfig
+import kr.kro.fatcats.allerview.di.NetworkModule
 import kr.kro.fatcats.allerview.model.event.Request
 import kr.kro.fatcats.allerview.model.local.FragmentSet
 import kr.kro.fatcats.allerview.repository.ProductRepository
@@ -24,10 +26,6 @@ class MainViewModel @Inject constructor(
     // 바코드
     private val _barcode = MutableStateFlow("")
     val barcode = _barcode.asStateFlow()
-
-    // 품목 번호
-    private val _itemCode = MutableStateFlow(0)
-    val itemCode = _itemCode.asStateFlow()
 
     private val _requestEvent = MutableSharedFlow<Request>()
     val requestEvent = _requestEvent.asSharedFlow()
@@ -53,21 +51,29 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    suspend fun getBarcodeLinkedProductInfo(url: String) {
-        LogUtil.d(LogUtil.DEBUG_LEVEL_2,"getBarcodeLinkedProductInfo url: $url")
+    // 바코드로 제품의 정보를 조회한다.
+    suspend fun getBarcodeLinkedProductInfo(request: Request.BarcodeLiked) {
+        val url = BuildConfig.BASE_URL+NetworkModule.C005+BAR_CODE+"=${request.barcode}"
         val barcodeInfo = productRepository.getBarcodeLinkedProductInfoAsync(url).await()
-        LogUtil.e(LogUtil.DEBUG_LEVEL_2,"getBarcodeLinkedProductInfo barcodeInfo -> $barcodeInfo")
-//        barcodeInfo.C005.row?.let {
-//            LogUtil.d(LogUtil.DEBUG_LEVEL_2,"getBarcodeLinkedProductInfo : $it")
-//        }
+        barcodeInfo.C005.row?.let {
+            LogUtil.d(LogUtil.DEBUG_LEVEL_2,"getBarcodeLinkedProductInfo : $it")
+            setRequestInfoEvent(Request.FoodRawLiked(it[0].PRDLST_REPORT_NO))
+        }
     }
 
-    suspend fun getFoodItemRawMaterialInfo(url: String) {
-        LogUtil.d(LogUtil.DEBUG_LEVEL_2,"getFoodItemRawMaterialInfo url: $url")
+    // 음식의 상세 정보를 조회한다.
+    suspend fun getFoodNameLikedRawInfo(request: Request.FoodRawLiked) {
+        val url = BuildConfig.BASE_URL+NetworkModule.C002+"${if (request.isFoodName) PRDLST_NM else PRDLST_REPORT_NO}=${request.foodParameter}"
         val foodCodeInfo = productRepository.getFoodItemRawMaterialInfoAsync(url).await()
         foodCodeInfo.C002.row?.let {
-            LogUtil.d(LogUtil.DEBUG_LEVEL_2,"getFoodItemRawMaterialInfo : $it")
+            LogUtil.d(LogUtil.DEBUG_LEVEL_2,"getFoodNameLikedRawInfo : $it")
         }
+    }
+
+    companion object {
+        const val BAR_CODE = "BAR_CD"
+        const val PRDLST_NM = "PRDLST_NM"
+        const val PRDLST_REPORT_NO = "PRDLST_REPORT_NO"
     }
 
 }
