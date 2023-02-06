@@ -1,3 +1,189 @@
 <resources>
     <string name="app_name">AllerView</string>
+
+
+
+
+
+<!--Food Arrays-->
+
+<!--  Grain, // 곡물류  -->
+    <string-array name = "buckwheat">
+        <item>메밀</item>
+        <item>메밀류</item>
+        <item>buckwheat</item>
+        <item>버큇</item>
+        <item>목맥</item>
+        <item>교맥</item>
+    </string-array>
+
+    <string-array name = "wheat">
+        <item>밀</item>
+        <item>밀류</item>
+        <item>밀가루</item>
+        <item>중력분</item>
+        <item>박력분</item>
+        <item>강력분</item>
+        <item>wheat</item>
+        <item>소맥</item>
+    </string-array>
+
+    <string-array name = "soybean">
+        <item>대두</item>
+        <item>대두류</item>
+        <item>soybean</item>
+        <item>소이빈</item>
+    </string-array>
+
+    <string-array name = "walnut">
+        <item>호두</item>
+        <item>호두류</item>
+        <item>walnut</item>
+        <item>월넛</item>
+    </string-array>
+
+    <string-array name = "peanut">
+        <item>땅콩</item>
+        <item>땅콩류</item>
+        <item>peanut</item>
+        <item>피넛</item>
+    </string-array>
+
+<!--     Meat, //육류  -->
+    <string-array name = "egg">
+        <item>달걀</item>
+        <item>달걀류</item>
+        <item>계란</item>
+        <item>계란류</item>
+        <item>egg</item>
+        <item>에그</item>
+        <item>난류</item>
+        <item>메추리알</item>
+        <item>오리알</item>
+        <item>타조알</item>
+    </string-array>
+
+    <string-array name = "milk">
+        <item>우유</item>
+        <item>milk</item>
+        <item>밀크</item>
+        <item>초콜릿</item>
+        <item>유제품</item>
+    </string-array>
+
+    <string-array name = "chicken">
+        <item>닭고기</item>
+        <item>닭고기류</item>
+        <item>chicken</item>
+        <item>닭</item>
+        <item>계육</item>
+    </string-array>
+
+    <string-array name = "beef">
+        <item>쇠고기</item>
+        <item>쇠고기류</item>
+        <item>beef</item>
+        <item>소고기</item>
+        <item>소고기류</item>
+        <item>비프</item>
+        <item>우육</item>
+    </string-array>
+
+    <string-array name = "pork">
+        <item>돼지고기</item>
+        <item>돼지고기류</item>
+        <item>돼지육</item>
+        <item>pork</item>
+        <item>포크</item>
+        <item>돈육</item>
+    </string-array>
+
+<!--     Fruit,//과일류  -->
+    <string-array name = "peach">
+        <item>복숭아</item>
+        <item>복숭아류</item>
+        <item>peach</item>
+        <item>피치</item>
+    </string-array>
+
+    <string-array name = "tomato">
+        <item>토마토</item>
+        <item>토마토류</item>
+        <item>tomato</item>
+        <item>남만시</item>
+    </string-array>
+
+<!--    SeaFood,//해산물  -->
+    <string-array name = "shrimp">
+        <item>새우</item>
+        <item>새우류</item>
+        <item>shrimp</item>
+        <item>쉬림프</item>
+        <item>소하</item>
+        <item>중하</item>
+        <item>대하</item>
+        <item>칵테일새우</item>
+    </string-array>
+
+    <string-array name = "mackerel">
+        <item>고등어</item>
+        <item>고등어류</item>
+        <item>mackerel</item>
+        <item>매커럴</item>
+    </string-array>
+
+    <string-array name = "mussel">
+        <item>홍합류</item>
+        <item>홍합</item>
+        <item>mussel</item>
+        <item>담치</item>
+        <item>담치류</item>
+        <item>머설</item>
+    </string-array>
+
+    <string-array name = "abalone">
+        <item>전복</item>
+        <item>전복류</item>
+        <item>abalone</item>
+        <item>애벌로니</item>
+    </string-array>
+
+    <string-array name = "oyster">
+        <item>굴</item>
+        <item>굴류</item>
+        <item>oyster</item>
+        <item>오이스터</item>
+    </string-array>
+
+    <string-array name = "shellfish">
+        <item>조개류</item>
+        <item>shellfish</item>
+        <item>조개</item>
+        <item>쉘피쉬</item>
+    </string-array>
+
+    <string-array name = "crab">
+        <item>게</item>
+        <item>게류</item>
+        <item>crab</item>
+        <item>킹크랩</item>
+        <item>크랩</item>
+        <item>가재</item>
+    </string-array>
+
+    <string-array name = "squid">
+        <item>오징어</item>
+        <item>squid</item>
+        <item>스퀴드</item>
+        <item>대왕오징어</item>
+        <item>문어</item>
+    </string-array>
+
+<!--    Etc //기타  -->
+    <string-array name = "sulfurousAcid">
+        <item>아황산</item>
+        <item>sulfurousAcid</item>
+        <item>설퍼러스애시드</item>
+    </string-array>
+
 </resources>
