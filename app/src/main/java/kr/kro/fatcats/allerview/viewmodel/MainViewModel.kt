@@ -3,7 +3,6 @@ package kr.kro.fatcats.allerview.viewmodel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -84,15 +83,15 @@ class MainViewModel @Inject constructor(
     }
 
     /*  --------------------------------------------------------- */
-
+    //바코드로 룸 정보 조회
     suspend fun importToBarcode(barcode : Long) : Food?{
         return roomRepository.importToBarcode(barcode)
     }
-
+    //식품명과, 회사명으로 룸 정보 조회
     suspend fun findByNameAndCompany(name: String, company: String) : Food?{
         return roomRepository.findByNameAndCompany(name,company)
     }
-
+    //룸에 정보 입력
     fun insertFood(food : Food) {
         viewModelScope.launch(ioDispatcher) {
             roomRepository.insertFood(food)
