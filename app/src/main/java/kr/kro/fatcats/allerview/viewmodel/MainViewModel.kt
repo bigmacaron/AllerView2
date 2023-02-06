@@ -57,6 +57,7 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    /**  ------------------------Network--------------------------------- */
     // 바코드로 제품의 정보를 조회한다.
     suspend fun getBarcodeLinkedProductInfo(request: Request.BarcodeLiked) {
         val url = BuildConfig.BASE_URL+NetworkModule.C005+BAR_CODE+"=${request.barcode}"
@@ -76,13 +77,7 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    companion object {
-        const val BAR_CODE = "BAR_CD"
-        const val PRDLST_NM = "PRDLST_NM"
-        const val PRDLST_REPORT_NO = "PRDLST_REPORT_NO"
-    }
-
-    /*  --------------------------------------------------------- */
+    /**  ------------------------Room--------------------------------- */
     //바코드로 룸 정보 조회
     suspend fun importToBarcode(barcode : Long) : Food?{
         return roomRepository.importToBarcode(barcode)
@@ -96,6 +91,13 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch(ioDispatcher) {
             roomRepository.insertFood(food)
         }
+    }
+
+    /**  --------------------companion object---------------------- */
+    companion object {
+        const val BAR_CODE = "BAR_CD"
+        const val PRDLST_NM = "PRDLST_NM"
+        const val PRDLST_REPORT_NO = "PRDLST_REPORT_NO"
     }
 
 }
