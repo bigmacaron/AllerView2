@@ -1,9 +1,8 @@
 package kr.kro.fatcats.allerview.model.local.room
 
-import android.content.Context
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.RoomDatabase
+import kr.kro.fatcats.allerview.model.local.room.dao.FoodDao
 import kr.kro.fatcats.allerview.model.local.room.entity.Food
 
 @Database(entities = [Food::class], version = 1)

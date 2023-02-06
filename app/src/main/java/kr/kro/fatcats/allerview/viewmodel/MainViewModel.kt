@@ -2,6 +2,8 @@ package kr.kro.fatcats.allerview.viewmodel
 
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -9,8 +11,10 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kr.kro.fatcats.allerview.BuildConfig
 import kr.kro.fatcats.allerview.di.NetworkModule
+import kr.kro.fatcats.allerview.di.annotations.IoDispatcher
 import kr.kro.fatcats.allerview.model.event.Request
 import kr.kro.fatcats.allerview.model.local.FragmentSet
+import kr.kro.fatcats.allerview.model.local.room.entity.Food
 import kr.kro.fatcats.allerview.repository.ProductRepository
 import kr.kro.fatcats.allerview.repository.RoomRepository
 import kr.kro.fatcats.allerview.util.LogUtil
@@ -18,6 +22,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
     private val productRepository: ProductRepository,
     private val roomRepository : RoomRepository
 ) : BaseViewModel() {
@@ -76,6 +81,22 @@ class MainViewModel @Inject constructor(
         const val BAR_CODE = "BAR_CD"
         const val PRDLST_NM = "PRDLST_NM"
         const val PRDLST_REPORT_NO = "PRDLST_REPORT_NO"
+    }
+
+    /*  --------------------------------------------------------- */
+
+    suspend fun importToBarcode(barcode : Long) : Food?{
+        return roomRepository.importToBarcode(barcode)
+    }
+
+    suspend fun findByNameAndCompany(name: String, company: String) : Food?{
+        return roomRepository.findByNameAndCompany(name,company)
+    }
+
+    fun insertFood(food : Food) {
+        viewModelScope.launch(ioDispatcher) {
+            roomRepository.insertFood(food)
+        }
     }
 
 }

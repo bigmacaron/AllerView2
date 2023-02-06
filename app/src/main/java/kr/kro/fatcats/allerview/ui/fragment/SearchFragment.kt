@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.room.Room
 import com.journeyapps.barcodescanner.CaptureManager
 import com.journeyapps.barcodescanner.DecoratedBarcodeView
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,6 +16,8 @@ import kotlinx.coroutines.launch
 import kr.kro.fatcats.allerview.R
 import kr.kro.fatcats.allerview.databinding.FragmentSearchBinding
 import kr.kro.fatcats.allerview.model.event.Request
+import kr.kro.fatcats.allerview.model.local.room.AppDataBase
+import kr.kro.fatcats.allerview.model.local.room.entity.Food
 import kr.kro.fatcats.allerview.util.LogUtil
 import kr.kro.fatcats.allerview.viewmodel.MainViewModel
 
@@ -57,6 +60,26 @@ class SearchFragment : BaseFragment<FragmentSearchBinding,MainViewModel>() {
             viewModel.setRequestInfoEvent(Request.BarcodeLiked(resultString))
             viewModel.moveBarcodeResultFragment()
         }
+
+        roomTest()
+    }
+
+    fun roomTest(){
+//      lifecycleScope.launch {
+//           val food =  viewModel.importToBarcode(8801791947312)?:run{
+//                viewModel.insertFood(Food(
+//                    8801791947312,"19550509001209","20130510",
+//                    "19550509001","매일맛있는신태양초고추장","매일식품주식회사","고추장",
+//                    "호화밀가루,아미노MW1,주정,고춧가루,정제소금,정제수,혼합양념,물엿,소맥분,종국"
+//                ))
+//            }
+//            LogUtil.e(LogUtil.DEBUG_LEVEL_2, "roomTest: $food")
+//        }
+//        lifecycleScope.launch {
+//            val food =  viewModel.findByNameAndCompany("초고추장","매일")
+//            LogUtil.e(LogUtil.DEBUG_LEVEL_2, "roomTest: $food")
+//        }
+
     }
 
     private fun requestInfoEventCollect() {
