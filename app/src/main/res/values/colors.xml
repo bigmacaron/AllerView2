@@ -12,12 +12,35 @@
     <color name="dark_button">#FF3A434A</color>
     <color name="light_background">#FFFFFFFF</color>
     <color name="light_button">#FFEAEAEA</color>
-    <color name="dark_primary">#FF0F8C5C</color>
-    <color name="light_primary">#FFFF5731</color>
-    <color name="blue_color">#FF1B8EF2</color>
-    <color name="yellow_color">#FFFFA600</color>
-    <color name="pink_color">#FFFF00B8</color>
+    <color name="dark_primary_85">#D90F8C5C</color>
+    <color name="light_primary_85">#D9FF5731</color>
+    <color name="blue_color_85">#D91B8EF2</color>
+    <color name="yellow_color_85">#D9FFA600</color>
+    <color name="pink_color_85">#D9FF00B8</color>
+    <color name="red_color_90">#E6FF0303</color>
 
     
     
 </resources>
+
+<!--    100% FF-->
+<!--    95%	F2-->
+<!--    90%	E6-->
+<!--    85%	D9-->
+<!--    80%	CC-->
+<!--    75%	BF-->
+<!--    70%	B3-->
+<!--    65%	A6-->
+<!--    60%	99-->
+<!--    55%	8C-->
+<!--    50%	80-->
+<!--    45%	73-->
+<!--    40%	66-->
+<!--    35%	59-->
+<!--    30%	4D-->
+<!--    25%	40-->
+<!--    20%	33-->
+<!--    15%	26-->
+<!--    10%	1A-->
+<!--    5%	0D-->
+<!--    0%	00-->
