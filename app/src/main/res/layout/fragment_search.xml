@@ -20,6 +20,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <kr.kro.fatcats.allerview.ui.widget.AVButton
+            android:id="@+id/AVButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CheckList"
+            android:onClick="@{()->viewModel.moveAllergyCheckFragment()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barcodeView" />
+
+        <kr.kro.fatcats.allerview.ui.widget.AVButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="List"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barcodeView" />
+
+
+
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

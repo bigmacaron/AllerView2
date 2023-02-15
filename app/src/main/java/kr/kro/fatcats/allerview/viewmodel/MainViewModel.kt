@@ -47,6 +47,10 @@ class MainViewModel @Inject constructor(
         setFragment(FragmentSet.BarcodeResultFragment)
     }
 
+    fun moveAllergyCheckFragment() {
+        setFragment(FragmentSet.MyAllergyCheckFragment)
+    }
+
     fun setBarcode(barcodeNumber: String) {
         _barcode.value = barcodeNumber
     }

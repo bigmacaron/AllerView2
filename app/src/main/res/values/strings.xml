@@ -6,6 +6,29 @@
 
 
 <!--Food Arrays-->
+    <string-array name = "string_food_list">
+        <item>메밀</item>
+        <item>밀</item>
+        <item>대두</item>
+        <item>호두</item>
+        <item>땅콩</item>
+        <item>달걀</item>
+        <item>우유</item>
+        <item>닭고기</item>
+        <item>쇠고기</item>
+        <item>돼지고기</item>
+        <item>복숭아</item>
+        <item>토마토</item>
+        <item>새우</item>
+        <item>고등어</item>
+        <item>홍합</item>
+        <item>전복</item>
+        <item>굴</item>
+        <item>조개</item>
+        <item>게</item>
+        <item>오징어</item>
+        <item>아황산</item>
+    </string-array>
 
 <!--  Grain, // 곡물류  -->
     <string-array name = "buckwheat">
