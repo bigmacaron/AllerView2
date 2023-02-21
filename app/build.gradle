@@ -41,6 +41,17 @@ android {
         dataBinding true
     }
 
+    sourceSets {
+        androidTest {
+            assets.srcDirs = ['src/androidTestDebug/assets']
+        }
+        main {
+            assets {
+                srcDirs 'src/main/assets', 'src/androidTestDebug/assets'
+            }
+        }
+    }
+
     defaultConfig {
         // load 완료 -> base_url 값을 BuildConfig 파일에 저장
         buildConfigField "String", "BASE_URL", properties['food_safety_korea_base_url']

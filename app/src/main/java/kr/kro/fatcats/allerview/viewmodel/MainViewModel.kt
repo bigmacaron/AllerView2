@@ -73,7 +73,7 @@ class MainViewModel @Inject constructor(
     }
 
     // 음식의 상세 정보를 조회한다.
-    suspend fun getFoodNameLikedRawInfo(request: Request.FoodRawLiked) {
+    suspend fun getFoodLikedRawInfo(request: Request.FoodRawLiked) {
         val url = BuildConfig.BASE_URL+NetworkModule.C002+"${if (request.isFoodName) PRDLST_NM else PRDLST_REPORT_NO}=${request.foodParameter}"
         val foodCodeInfo = productRepository.getFoodItemRawMaterialInfoAsync(url).await()
         foodCodeInfo.C002.row?.let {

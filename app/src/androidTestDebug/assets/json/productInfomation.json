@@ -1,0 +1,24 @@
+{
+  "C005": {
+    "total_count": "1",
+    "row": [
+      {
+        "CLSBIZ_DT": "",
+        "SITE_ADDR": "전라남도 순천시 서면 산단1길 16",
+        "PRDLST_REPORT_NO": "19550509001209",
+        "PRMS_DT": "20130510",
+        "PRDLST_NM": "매일맛있는신태양초고추장",
+        "BAR_CD": "8801791947312",
+        "POG_DAYCNT": "제조일로부터 18개월",
+        "PRDLST_DCNM": "고추장",
+        "BSSH_NM": "매일식품주식회사",
+        "END_DT": "",
+        "INDUTY_NM": "식품제조가공업"
+      }
+    ],
+    "RESULT": {
+      "MSG": "정상처리되었습니다.",
+      "CODE": "INFO-000"
+    }
+  }
+}

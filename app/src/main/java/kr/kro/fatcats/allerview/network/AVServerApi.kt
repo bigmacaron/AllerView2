@@ -8,6 +8,11 @@ import retrofit2.http.Url
 
 interface AVServerApi {
 
+    // Todo 오현석
+    //  1. Response MSG JSONObject 를 생성해서 한번 담고
+    //  2. CODE 를 파싱해서 INFO, ERROR 를 구분한다.
+    //  3. 구분한 값으로 분기처리가 가능하도록 만들어야할 것 같아보임.
+
     // 바코드로 상품의 정보를 조회한다.
     // http://openapi.foodsafetykorea.go.kr/api/[APIKEY]/C005/json/1/1/BAR_CD="8801791947312"
     @GET

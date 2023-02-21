@@ -4,6 +4,9 @@ class AVConstants {
 
     object ResponseMsgCode {
 
+        const val INFO      = "INFO"
+        const val ERROR     = "ERROR"
+
         const val INFO_000  = "INFO-000"
         const val INFO_100  = "INFO-100"
         const val INFO_200  = "INFO-200"
