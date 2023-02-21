@@ -14,7 +14,7 @@ class RoomRepository @Inject constructor(
     private val dao = db.foodDao()
 
     suspend fun importToBarcode(barcode : Long) : Food? = withContext(ioDispatcher) {
-        dao.loadByBarcode(barcode)
+        dao.importToBarcode(barcode)
     }
 
     suspend fun findByNameAndCompany(name: String, company: String) : Food? = withContext(ioDispatcher) {
@@ -23,6 +23,9 @@ class RoomRepository @Inject constructor(
 
     suspend fun insertFood(food : Food) = withContext(ioDispatcher) {
         dao.insertAll(food)
+    }
+    suspend fun deleteFood(food : Food) = withContext(ioDispatcher){
+        dao.delete(food)
     }
 
 }

@@ -13,7 +13,7 @@ interface FoodDao {
     fun getAll(): List<Food>
 
     @Query("SELECT * FROM food WHERE barcode IN (:barcode)")
-    fun loadByBarcode(barcode: Long): Food?
+    fun importToBarcode(barcode: Long): Food?
 
     @Query("SELECT * FROM food WHERE PRDLST_NM LIKE '%' || :name || '%' AND " +
             "BSSH_NM LIKE '%' || :company || '%' LIMIT 20")
@@ -23,5 +23,5 @@ interface FoodDao {
     fun insertAll(vararg foods: Food)
 
     @Delete
-    fun delete(user: Food)
+    fun delete(food: Food)
 }
