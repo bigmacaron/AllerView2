@@ -66,7 +66,7 @@ class RoomRepositoryTest {
     }
 
     @Test
-    fun `insertAndGetInsertedDataTest`(){
+    fun `insertAndGetInsertedDataTest`() = runTest(testDispatcher){
         dao.insertAll(beInsertFood)
         val result = dao.importToBarcode(mocBarcode)
         assertEquals(result ,beInsertFood)
@@ -79,13 +79,4 @@ class RoomRepositoryTest {
         db.close()
     }
 
-
-//    @Test
-//    fun findByNameAndCompany() {
-//
-//    }
-//
-//    @Test
-//    fun insertFood() {
-//    }
 }
