@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -39,7 +40,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding,MainViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        requestInfoEventCollect()
+        requestEventCollect()
         val barcodeScannerView = viewBinding?.barcodeView as DecoratedBarcodeView
         capture = CaptureManager(requireActivity(),barcodeScannerView)
         val intent = requireActivity().intent
@@ -54,12 +55,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding,MainViewModel>() {
             LogUtil.i(LogUtil.DEBUG_LEVEL_2,"barcode: $result")
             val resultString = result.text
             viewModel.setBarcode(resultString)
-            viewModel.setRequestInfoEvent(Request.BarcodeLiked(resultString))
+            viewModel.setRequestEvent(Request.BarcodeLiked(resultString))
             viewModel.moveBarcodeResultFragment()
         }
     }
 
-    private fun requestInfoEventCollect() {
+    private fun requestEventCollect() {
         lifecycleScope.launch {
             viewModel.requestEvent.collectLatest {
                 when  (it) {
@@ -69,9 +70,13 @@ class SearchFragment : BaseFragment<FragmentSearchBinding,MainViewModel>() {
                         viewModel.getBarcodeLinkedProductInfo(it)
                     }
                     is Request.FoodRawLiked -> {
-                        LogUtil.d(LogUtil.DEBUG_LEVEL_2,"Request Event is FoodRawLiked \nisFoodName: ${it.isFoodName} foodPrameter\n${it.foodParameter}")
+                        LogUtil.d(LogUtil.DEBUG_LEVEL_2,"Request Event is FoodRawLiked \nisFoodName: ${it.isFoodName} foodParameter\n${it.foodParameter}")
                         viewModel.getFoodLikedRawInfo(it)
                         // todo util
+                    }
+                    is Request.Toast -> {
+                        LogUtil.d(LogUtil.DEBUG_LEVEL_2,"requestEventCollect msg : ${it.stringArgs}")
+                        Toast.makeText(requireContext(), it.stringArgs, Toast.LENGTH_SHORT).show()
                     }
                     is Request.NoneLiked -> {
                         LogUtil.d(LogUtil.DEBUG_LEVEL_2,"Request Event is NoneLiked")

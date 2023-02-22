@@ -14,14 +14,12 @@ interface AVServerApi {
     //  3. 구분한 값으로 분기처리가 가능하도록 만들어야할 것 같아보임.
 
     // 바코드로 상품의 정보를 조회한다.
-    // http://openapi.foodsafetykorea.go.kr/api/[APIKEY]/C005/json/1/1/BAR_CD="8801791947312"
     @GET
     fun getBarcodeLinkedProductInfoAsync(
         @Url url: String?
     ) : Deferred<BarcodeInfo>
 
-    // 품목 번호로 음식의 상세 정보를 조회한다.
-    // http://openapi.foodsafetykorea.go.kr/api/[APIKEY]/C002/json/1/1/PRDLST_REPORT_NO = 19550509001209
+    // 품목 번호 or 제품 이름으로 음식의 상세 정보를 조회한다.
     @GET
     fun getFoodItemRawMaterialInfoAsync(
         @Url url: String?

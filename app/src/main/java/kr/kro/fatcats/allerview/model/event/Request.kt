@@ -1,5 +1,7 @@
 package kr.kro.fatcats.allerview.model.event
 
+import androidx.annotation.StringRes
+
 sealed class Request {
 
     // 바코드로 api 요청
@@ -11,5 +13,6 @@ sealed class Request {
      **/
     class FoodRawLiked(val foodParameter: String, val isFoodName: Boolean = false): Request()
     object NoneLiked: Request()
+    class Toast(@StringRes val resId: Int?, val stringArgs: String): Request()
 
 }

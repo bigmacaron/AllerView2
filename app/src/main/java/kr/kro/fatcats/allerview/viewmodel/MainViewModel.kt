@@ -55,7 +55,7 @@ class MainViewModel @Inject constructor(
         _barcode.value = barcodeNumber
     }
 
-    fun setRequestInfoEvent(request: Request) {
+    fun setRequestEvent(request: Request) {
         viewModelScope.launch {
             _requestEvent.emit(request)
         }
@@ -68,16 +68,21 @@ class MainViewModel @Inject constructor(
         val barcodeInfo = productRepository.getBarcodeLinkedProductInfoAsync(url).await()
         barcodeInfo.C005.row?.let {
             LogUtil.d(LogUtil.DEBUG_LEVEL_2,"getBarcodeLinkedProductInfo : $it")
-            setRequestInfoEvent(Request.FoodRawLiked(it[0].PRDLST_REPORT_NO))
+            setRequestEvent(Request.FoodRawLiked(it[0].PRDLST_REPORT_NO)) // Todo 여러개일 경우의 처리도 필요
+        } ?: run {
+            setRequestEvent(Request.Toast(resId = null, barcodeInfo.C005.RESULT.MSG))
         }
     }
 
     // 음식의 상세 정보를 조회한다.
     suspend fun getFoodLikedRawInfo(request: Request.FoodRawLiked) {
+        LogUtil.d(LogUtil.DEBUG_LEVEL_2,"getFoodLikedRawInfo")
         val url = BuildConfig.BASE_URL+NetworkModule.C002+"${if (request.isFoodName) PRDLST_NM else PRDLST_REPORT_NO}=${request.foodParameter}"
         val foodCodeInfo = productRepository.getFoodItemRawMaterialInfoAsync(url).await()
         foodCodeInfo.C002.row?.let {
             LogUtil.d(LogUtil.DEBUG_LEVEL_2,"getFoodNameLikedRawInfo : $it")
+        } ?: run {
+            setRequestEvent(Request.Toast(resId = null, foodCodeInfo.C002.RESULT.MSG))
         }
     }
 
