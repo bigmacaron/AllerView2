@@ -16,7 +16,6 @@ import kr.kro.fatcats.allerview.repository.ProductRepository
 import kr.kro.fatcats.allerview.utils.fromString
 import kr.kro.fatcats.allerview.utils.readJson
 import kr.kro.fatcats.allerview.viewmodel.MainViewModel
-import kr.kro.fatca정ts.allerview.utils.readJson
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
