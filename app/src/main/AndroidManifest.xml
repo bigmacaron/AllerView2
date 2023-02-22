@@ -32,6 +32,12 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"/> <!-- 현재 TestValue로 적용되어있음 !!테스트 할 때에는 꼭 testValue로 해야한다. 안그럼 계정 정지가 될 수 있음.-->
+            <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+
     </application>
 
 </manifest>

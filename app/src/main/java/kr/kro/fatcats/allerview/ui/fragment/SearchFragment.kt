@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import com.journeyapps.barcodescanner.CaptureManager
 import com.journeyapps.barcodescanner.DecoratedBarcodeView
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,6 +38,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding,MainViewModel>() {
 
     override fun initData(viewBinding: FragmentSearchBinding) {
         viewBinding.viewModel = viewModel
+        MobileAds.initialize(requireContext())
+        AdRequest.Builder().build().run {
+            viewBinding.adView.loadAd(this)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
