@@ -99,9 +99,9 @@ class MainViewModel @Inject constructor(
 
     /**  --------------------companion object---------------------- */
     companion object {
-        const val BAR_CODE = "BAR_CD"
-        const val PRDLST_NM = "PRDLST_NM"
-        const val PRDLST_REPORT_NO = "PRDLST_REPORT_NO"
+        const val BAR_CODE = "BAR_CD"                   // 바코드
+        const val PRDLST_NM = "PRDLST_NM"               // 제품명
+        const val PRDLST_REPORT_NO = "PRDLST_REPORT_NO" // 품목 제조 번호
     }
 
 }

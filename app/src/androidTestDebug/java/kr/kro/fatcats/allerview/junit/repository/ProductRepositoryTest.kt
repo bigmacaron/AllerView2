@@ -7,9 +7,7 @@ import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.test.TestScope
-import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.test.*
 import kr.kro.fatcats.allerview.BuildConfig
 import kr.kro.fatcats.allerview.di.NetworkModule
 import kr.kro.fatcats.allerview.model.barcodeInfo.BarcodeInfo
@@ -18,6 +16,7 @@ import kr.kro.fatcats.allerview.repository.ProductRepository
 import kr.kro.fatcats.allerview.utils.fromString
 import kr.kro.fatcats.allerview.utils.readJson
 import kr.kro.fatcats.allerview.viewmodel.MainViewModel
+import kr.kro.fatca정ts.allerview.utils.readJson
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -31,41 +30,51 @@ import javax.inject.Inject
 @HiltAndroidTest
 class ProductRepositoryTest {
 
-    private val assets: AssetManager =
-        InstrumentationRegistry.getInstrumentation().context.assets
+    @get:Rule
+    val hiltRule = HiltAndroidRule(this)
 
     @Inject
     lateinit var productRepository: ProductRepository
     private lateinit var testScope: TestScope
-    private val testDispatcher = UnconfinedTestDispatcher()
-    private val productBarcodeNumber = 8801791947312  // 매일맛있는신태양고추장 바코드
-    private val foodName = "매일맛있는신태양초고추장"        // 매일맛있는신태양초고추장 이름
-    private val foodNumber = 1978061400972
+    private lateinit var testDispatcher: TestDispatcher
+    private val assets: AssetManager = InstrumentationRegistry.getInstrumentation().context.assets
+
+    private val productBarcodeNumber = 8801791947312  // 바코드
+    private val foodName = "매일맛있는신태양초고추장"        // 제품명
+    private val foodNumber = 19550509001209           // 품목 번호
 
     private val productBarcodeUrl = BuildConfig.BASE_URL+NetworkModule.C005+MainViewModel.BAR_CODE+"=$productBarcodeNumber"
     private val foodNameLikedRawInfoUrl = BuildConfig.BASE_URL+NetworkModule.C002+"${MainViewModel.PRDLST_NM}=${foodName}"
-    private val foodNoLikedRawInfoUrl = BuildConfig.BASE_URL+NetworkModule.C002+"${MainViewModel.PRDLST_REPORT_NO}=${foodNumber}"
-
-    @get:Rule
-    val hiltRule = HiltAndroidRule(this)
+    private val foodReportNoLikedRawInfoUrl = BuildConfig.BASE_URL+NetworkModule.C002+"${MainViewModel.PRDLST_REPORT_NO}=${foodNumber}"
 
     @Before
     fun setUp() {
         hiltRule.inject()
         testScope = TestScope()
+        testDispatcher = UnconfinedTestDispatcher(testScope.testScheduler)
     }
 
     @Test
     fun `getBarcodeLinkedProductInfo`() = runTest(testDispatcher) {
         val expected = assets.readJson("productInfomation.json").fromString<BarcodeInfo>()
         val result = productRepository.getBarcodeLinkedProductInfoAsync(productBarcodeUrl).await()
+        advanceUntilIdle()
         assertEquals(expected, result)
     }
 
     @Test
     fun `getFoodNameLinkedInfo`() = runTest(testDispatcher) {
-        val expected = assets.readJson("foodInfomationByName.json").fromString<FoodInfo>()
+        val expected = assets.readJson("foodInfomation.json").fromString<FoodInfo>()
         val result = productRepository.getFoodItemRawMaterialInfoAsync(foodNameLikedRawInfoUrl).await()
+        advanceUntilIdle()
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun `getFoodReportNoLinkedInfo`() = runTest(testDispatcher) {
+        val expected = assets.readJson("foodInfomation.json").fromString<FoodInfo>()
+        val result = productRepository.getFoodItemRawMaterialInfoAsync(foodReportNoLikedRawInfoUrl).await()
+        advanceUntilIdle()
         assertEquals(expected, result)
     }
 
