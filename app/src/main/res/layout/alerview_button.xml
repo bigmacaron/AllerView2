@@ -9,6 +9,7 @@
         android:id="@+id/backgroundLayout"
         android:layout_width="@dimen/av_btn_base_width"
         android:layout_height="@dimen/av_btn_base_height"
+        android:alpha="0.85"
         android:background="@drawable/background_dark_rectnagle"
         android:paddingHorizontal="@dimen/common_dp_20"
         android:paddingVertical="@dimen/common_dp_30"
