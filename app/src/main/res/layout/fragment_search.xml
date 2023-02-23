@@ -12,47 +12,65 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/dark_background">
 
+        <!--  검색 바 영역  -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- 바코드 영역 -->
         <com.journeyapps.barcodescanner.DecoratedBarcodeView
             android:id="@+id/barcodeView"
             android:layout_width="0dp"
-            android:layout_height="300dp"
+            android:layout_height="@dimen/common_dp_300"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- 나의 알러지 버튼 -->
         <kr.kro.fatcats.allerview.ui.widget.AVButton
-            android:id="@+id/AVButton"
+            android:id="@+id/btnMyAllergy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_dp_30"
             android:onClick="@{()->viewModel.moveAllergyCheckFragment()}"
-            android:text="CheckList"
-            android:textColor="@color/dark_primary_85"
-            app:layout_constraintBottom_toTopOf="@id/adView"
+            app:layout_constraintBottom_toTopOf="@+id/adView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/barcodeView" />
+            app:layout_constraintTop_toBottomOf="@+id/barcodeView"
+            app:symbol="@drawable/ic_check_allergy"
+            app:text="@string/my_allergy"
+            app:textColor="@color/black" />
 
+        <!-- 리스트 보기 영역 -->
         <kr.kro.fatcats.allerview.ui.widget.AVButton
+            android:id="@+id/btnShowList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="List"
-            android:textColor="@color/dark_primary_85"
-            app:layout_constraintBottom_toTopOf="@id/adView"
+            android:layout_marginEnd="@dimen/common_dp_30"
+            app:layout_constraintBottom_toTopOf="@+id/adView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/barcodeView" />
+            app:layout_constraintTop_toBottomOf="@id/barcodeView"
+            app:symbol="@drawable/ic_list"
+            app:text="@string/show_list"
+            app:textColor="@color/black" />
 
         <!-- 실제 앱을 올릴 경우 Test adUnitId -> 실제 Application ID -->
-        <com.google.android.gms.ads.AdView
-            xmlns:ads="http://schemas.android.com/apk/res-auto"
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
             android:id="@+id/adView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-3940256099942544/6300978111"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

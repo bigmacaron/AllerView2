@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">AllerView</string>
+    <string name="my_allergy">나의\알러지</string>
+    <string name="show_list">리스트보기</string>
 
-
-
+    <string name="description_img_symbol">심볼</string>
 
 
 <!--Food Arrays-->
