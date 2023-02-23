@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import kr.kro.fatcats.allerview.R
 import kr.kro.fatcats.allerview.databinding.FragmentBarcodeResultBinding
+import kr.kro.fatcats.allerview.ui.activity.MainActivity
 import kr.kro.fatcats.allerview.viewmodel.MainViewModel
 
 
@@ -24,6 +25,7 @@ class BarcodeResultFragment : BaseFragment<FragmentBarcodeResultBinding,MainView
 
     override fun initData(viewBinding: FragmentBarcodeResultBinding) {
         viewBinding.viewModel = viewModel
+        viewBinding.activity  = requireActivity() as MainActivity // Todo onBackPressed 이벤트를 어떻게 처리할지 추후에 수정..
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

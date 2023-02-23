@@ -3,7 +3,8 @@
     <string name="my_allergy">나의\알러지</string>
     <string name="show_list">리스트보기</string>
 
-    <string name="description_img_symbol">심볼</string>
+    <string name="description_symbol">심볼</string>
+    <string name="description_left_arrow">왼쪽 화살표</string>
 
 
 <!--Food Arrays-->

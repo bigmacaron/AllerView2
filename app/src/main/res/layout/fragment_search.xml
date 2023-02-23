@@ -20,7 +20,7 @@
             android:id="@+id/clSearchBar"
             android:layout_width="0dp"
             android:layout_height="?attr/actionBarSize"
-            android:layout_marginTop="@dimen/common_dp_15"
+            android:layout_marginTop="@dimen/common_dp_20"
             android:background="@android:color/transparent"
             android:paddingHorizontal="@dimen/common_dp_15"
             app:layout_constraintEnd_toEndOf="parent"

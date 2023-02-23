@@ -70,6 +70,7 @@ class MainViewModel @Inject constructor(
             LogUtil.d(LogUtil.DEBUG_LEVEL_2,"getBarcodeLinkedProductInfo : $it")
             setRequestEvent(Request.FoodRawLiked(it[0].PRDLST_REPORT_NO)) // Todo 여러개일 경우의 처리도 필요
         } ?: run {
+            // TODO 단순히 메시지만 보여주는게 아니라 INFO, ERROR 대한 분기 처리 고민해보고 어떤식으로 노출해줄지 추후 작성
             setRequestEvent(Request.Toast(resId = null, barcodeInfo.C005.RESULT.MSG))
         }
     }
