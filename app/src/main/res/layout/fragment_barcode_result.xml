@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="activity"
             type="kr.kro.fatcats.allerview.ui.activity.MainActivity" />
@@ -37,6 +38,52 @@
                     android:layout_height="wrap_content"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
+                    <!-- Content 영역(알러지 주의, 카테고리) -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="?attr/actionBarSize">
+
+                        <!-- 알러지 알림 주의 -->
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="@dimen/common_dp_100"
+                            android:layout_height="@dimen/common_dp_40"
+                            android:layout_marginStart="@dimen/common_dp_15"
+                            android:layout_marginTop="@dimen/common_dp_20"
+                            android:background="@drawable/background_red_rectnagle"
+                            android:paddingHorizontal="@dimen/common_dp_10"
+                            android:paddingVertical="@dimen/common_dp_10"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:id="@+id/ivWarring"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:src="@drawable/ic_warning" />
+
+                            <TextView
+                                android:id="@+id/tvNotification"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/common_dp_16"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/ivWarring"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:text="주의" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
                     <androidx.appcompat.widget.Toolbar
                         android:id="@+id/toolbar"
                         android:layout_width="match_parent"
@@ -55,10 +102,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="@dimen/common_dp_15"
-                                android:src="@drawable/ic_left_arrow_white"
-                                android:onClick="@{() -> activity.onBackPressed()}"
-                                app:layout_constraintBottom_toBottomOf="parent"
                                 android:contentDescription="@string/description_left_arrow"
+                                android:onClick="@{() -> activity.onBackPressed()}"
+                                android:src="@drawable/ic_left_arrow_white"
+                                app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 

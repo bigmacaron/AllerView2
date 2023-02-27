@@ -7,6 +7,9 @@
     <dimen name="common_dp_20">20dp</dimen>
     <dimen name="common_dp_24">24dp</dimen>
     <dimen name="common_dp_30">30dp</dimen>
+    <dimen name="common_dp_40">40dp</dimen>
+    <dimen name="common_dp_100">100dp</dimen>
+    <dimen name="common_dp_200">200dp</dimen>
     <dimen name="common_dp_300">300dp</dimen>
     <dimen name="av_btn_base_width">130dp</dimen>
     <dimen name="av_btn_base_height">180dp</dimen>
