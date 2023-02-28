@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="common_dp_0.1">0.1dp</dimen>
     <dimen name="common_dp_5">5dp</dimen>
     <dimen name="common_dp_10">10dp</dimen>
+    <dimen name="common_dp_12">12dp</dimen>
     <dimen name="common_dp_15">15dp</dimen>
     <dimen name="common_dp_16">16dp</dimen>
     <dimen name="common_dp_20">20dp</dimen>

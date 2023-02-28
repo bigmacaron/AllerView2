@@ -50,9 +50,9 @@
                             android:layout_height="@dimen/common_dp_40"
                             android:layout_marginStart="@dimen/common_dp_15"
                             android:layout_marginTop="@dimen/common_dp_20"
+                            android:background="@{viewModel.isWaringLabel() ? @drawable/background_red_rectnagle : @drawable/background_green_rectnagle}"
                             android:paddingHorizontal="@dimen/common_dp_10"
                             android:paddingVertical="@dimen/common_dp_10"
-                            android:background="@{viewModel.isWaringLabel() ? @drawable/background_red_rectnagle : @drawable/background_green_rectnagle}"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             tools:background="@drawable/background_red_rectnagle">
@@ -61,10 +61,11 @@
                                 android:id="@+id/ivLabel"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:src="@{viewModel.isWaringLabel() ? @drawable/ic_warning : @drawable/ic_safety}"
+                                android:contentDescription="@string/waring"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                android:src="@{viewModel.isWaringLabel() ? @drawable/ic_warning : @drawable/ic_safety}"
                                 tools:src="@drawable/ic_warning" />
 
                             <TextView
@@ -72,15 +73,34 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
+                                android:text="@{viewModel.isWaringLabel() ? @string/waring : @string/safety}"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/common_dp_16"
                                 android:textStyle="bold"
-                                android:text="@{viewModel.isWaringLabel() ? @string/waring : @string/safety}"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toEndOf="@id/ivLabel"
                                 app:layout_constraintTop_toTopOf="parent"
                                 tools:text="주의" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <!-- 알러지 카테고리 -->
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/common_dp_20"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <kr.kro.fatcats.allerview.ui.widget.AVCategoryLabel
+                                android:id="@+id/categoryBeef"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:categoryBackgroundTint="@color/red_color_90"
+                                app:categoryIcon="@mipmap/beef"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 

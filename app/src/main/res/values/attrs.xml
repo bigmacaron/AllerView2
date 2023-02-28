@@ -6,4 +6,8 @@
         <attr name="btnTxt" format="reference|string" />
         <attr name="btnTxtColor" format="reference|integer" />
     </declare-styleable>
+    <declare-styleable name="AVCategoryLabel">
+        <attr name="categoryBackgroundTint" format="reference|color" />
+        <attr name="categoryIcon" format="reference|integer" />
+    </declare-styleable>
 </resources>
