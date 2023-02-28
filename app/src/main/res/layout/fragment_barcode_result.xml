@@ -27,7 +27,7 @@
                 android:id="@+id/appBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/dark_primary_85"
+                android:background="@drawable/background_dark_primary_bottom_rectnagle"
                 android:theme="@style/ThemeOverlay.AppCompat.DayNight.ActionBar"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -42,10 +42,12 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingVertical="?attr/actionBarSize">
+                        android:paddingTop="?attr/actionBarSize"
+                        android:paddingBottom="@dimen/common_dp_20">
 
                         <!-- 알러지 알림 주의 -->
                         <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clLabel"
                             android:layout_width="@dimen/common_dp_100"
                             android:layout_height="@dimen/common_dp_40"
                             android:layout_marginStart="@dimen/common_dp_15"
@@ -61,8 +63,8 @@
                                 android:id="@+id/ivLabel"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@{viewModel.isWaringLabel() ? @drawable/ic_warning : @drawable/ic_safety}"
                                 android:contentDescription="@string/waring"
+                                android:src="@{viewModel.isWaringLabel() ? @drawable/ic_warning : @drawable/ic_safety}"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -90,19 +92,63 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/common_dp_20"
+                            android:layout_marginEnd="@dimen/common_dp_20"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
 
                             <kr.kro.fatcats.allerview.ui.widget.AVCategoryLabel
-                                android:id="@+id/categoryBeef"
+                                android:id="@+id/categoryFruit"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:categoryBackgroundTint="@color/red_color_90"
-                                app:categoryIcon="@mipmap/beef"
+                                app:categoryBackgroundTint="@color/pink_color_85"
+                                app:categoryIcon="@mipmap/peach"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
+                            <kr.kro.fatcats.allerview.ui.widget.AVCategoryLabel
+                                android:id="@+id/categoryNuts"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/av_category_minus_dp_10"
+                                app:categoryBackgroundTint="@color/yellow_color_85"
+                                app:categoryIcon="@mipmap/peanut"
+                                app:layout_constraintEnd_toStartOf="@+id/categoryFruit"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <kr.kro.fatcats.allerview.ui.widget.AVCategoryLabel
+                                android:id="@+id/categoryMeat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/av_category_minus_dp_10"
+                                app:categoryBackgroundTint="@color/red_color_90"
+                                app:categoryIcon="@mipmap/beef"
+                                app:layout_constraintEnd_toStartOf="@+id/categoryNuts"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <kr.kro.fatcats.allerview.ui.widget.AVCategoryLabel
+                                android:id="@+id/categorySeafood"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/av_category_minus_dp_10"
+                                app:categoryBackgroundTint="@color/blue_color_85"
+                                app:categoryIcon="@mipmap/shrimp"
+                                app:layout_constraintEnd_toStartOf="@+id/categoryMeat"
+                                app:layout_constraintTop_toTopOf="parent" />
+
                         </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <TextView
+                            android:id="@+id/tvProductName"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/common_dp_20"
+                            android:maxLines="1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/clLabel"
+                            app:layout_constraintTop_toBottomOf="@+id/clLabel"
+                            tools:text="매일 맛있는 신태양 초 고추장"
+                            tools:textColor="@color/white"
+                            tools:textStyle="bold" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
