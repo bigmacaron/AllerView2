@@ -50,37 +50,39 @@
                             android:layout_height="@dimen/common_dp_40"
                             android:layout_marginStart="@dimen/common_dp_15"
                             android:layout_marginTop="@dimen/common_dp_20"
-                            android:background="@drawable/background_red_rectnagle"
                             android:paddingHorizontal="@dimen/common_dp_10"
                             android:paddingVertical="@dimen/common_dp_10"
+                            android:background="@{viewModel.isWaringLabel() ? @drawable/background_red_rectnagle : @drawable/background_green_rectnagle}"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:background="@drawable/background_red_rectnagle">
 
                             <ImageView
-                                android:id="@+id/ivWarring"
+                                android:id="@+id/ivLabel"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
+                                android:src="@{viewModel.isWaringLabel() ? @drawable/ic_warning : @drawable/ic_safety}"
                                 tools:src="@drawable/ic_warning" />
 
                             <TextView
-                                android:id="@+id/tvNotification"
+                                android:id="@+id/tvLabel"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/common_dp_16"
                                 android:textStyle="bold"
+                                android:text="@{viewModel.isWaringLabel() ? @string/waring : @string/safety}"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@id/ivWarring"
+                                app:layout_constraintStart_toEndOf="@id/ivLabel"
                                 app:layout_constraintTop_toTopOf="parent"
                                 tools:text="주의" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 

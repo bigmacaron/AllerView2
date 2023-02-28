@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="AVButton">
-        <attr name="backgroundTint" format="reference|color" />
-        <attr name="symbol" format="reference|integer" />
-        <attr name="text" format="reference|string" />
-        <attr name="textColor" format="reference|integer" />
+        <attr name="btnBackgroundTint" format="reference|color" />
+        <attr name="btnSymbol" format="reference|integer" />
+        <attr name="btnTxt" format="reference|string" />
+        <attr name="btnTxtColor" format="reference|integer" />
     </declare-styleable>
 </resources>

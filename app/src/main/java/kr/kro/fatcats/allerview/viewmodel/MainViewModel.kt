@@ -36,6 +36,10 @@ class MainViewModel @Inject constructor(
     private val _requestEvent = MutableSharedFlow<Request>()
     val requestEvent = _requestEvent.asSharedFlow()
 
+    // 알러지 안전 or 경고 라벨
+    private val _isWaringLabel = MutableStateFlow<Boolean?>(null)
+    val isWaringLabel = _isWaringLabel.asStateFlow()
+
     /*
     * Methods
     * */
@@ -58,6 +62,12 @@ class MainViewModel @Inject constructor(
     fun setRequestEvent(request: Request) {
         viewModelScope.launch {
             _requestEvent.emit(request)
+        }
+    }
+
+    fun setAllergyLabel(isWarning: Boolean) {
+        viewModelScope.launch {
+            _isWaringLabel.emit(isWarning)
         }
     }
 
