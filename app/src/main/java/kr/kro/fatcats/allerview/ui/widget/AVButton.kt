@@ -55,9 +55,9 @@ class AVButton : ConstraintLayout {
     }
 
     private fun setAttrs(typedArray: TypedArray) {
-        val backgroundResId = typedArray.getResourceId(R.styleable.AVButton_btnBackgroundTint, R.color.dark_primary_85)
+        val backgroundResId = typedArray.getResourceId(R.styleable.AVButton_btnBackgroundTint, R.color.primary_85)
         val symbolResId = typedArray.getResourceId(R.styleable.AVButton_btnSymbol, R.drawable.ic_launcher_foreground)
-        val textColorResId = typedArray.getColor(R.styleable.AVButton_btnTxtColor, ContextCompat.getColor(context, R.color.black))
+        val textColorResId = typedArray.getColor(R.styleable.AVButton_btnTxtColor, ContextCompat.getColor(context, R.color.text_color))
         val textResId = typedArray.getString(R.styleable.AVButton_btnTxt)
 
 //        backgroundView.backgroundTintList = ContextCompat.getColorStateList(context, backgroundResId)

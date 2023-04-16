@@ -53,7 +53,7 @@ class AVCategoryLabel : ConstraintLayout {
     }
 
     private fun setAttrs(typedArray: TypedArray) {
-        val backgroundResId = typedArray.getResourceId(R.styleable.AVCategoryLabel_categoryBackgroundTint, R.color.dark_primary_85)
+        val backgroundResId = typedArray.getResourceId(R.styleable.AVCategoryLabel_categoryBackgroundTint, R.color.primary_85)
         val iconResId = typedArray.getResourceId(R.styleable.AVCategoryLabel_categoryIcon, R.drawable.ic_launcher_foreground)
         val drawable: GradientDrawable? =
             ContextCompat.getDrawable(context, R.drawable.background_oval) as GradientDrawable?

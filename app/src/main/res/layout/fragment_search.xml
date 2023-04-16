@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/dark_background">
+        android:background="@color/background">
 
         <!--  검색 바 영역  -->
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +31,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/background_dark_primary_rectnagle"
+                android:background="@drawable/background_primary_rectnagle"
                 android:hint="제품을 검색해보세요!"
                 android:textColorHint="@color/white"
                 app:boxStrokeWidth="0dp"

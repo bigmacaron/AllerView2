@@ -27,7 +27,7 @@
                 android:id="@+id/appBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/background_dark_primary_bottom_rectnagle"
+                android:background="@drawable/background_primary_bottom_rectnagle"
                 android:theme="@style/ThemeOverlay.AppCompat.DayNight.ActionBar"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -100,7 +100,7 @@
                                 android:id="@+id/categoryFruit"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:categoryBackgroundTint="@color/pink_color_85"
+                                app:categoryBackgroundTint="@color/third_color_85"
                                 app:categoryIcon="@mipmap/peach"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -110,7 +110,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="@dimen/av_category_minus_dp_10"
-                                app:categoryBackgroundTint="@color/yellow_color_85"
+                                app:categoryBackgroundTint="@color/second_color_85"
                                 app:categoryIcon="@mipmap/peanut"
                                 app:layout_constraintEnd_toStartOf="@+id/categoryFruit"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -132,7 +132,7 @@
                                 android:layout_height="wrap_content"
                                 app:layout_goneMarginEnd="0dp"
                                 android:layout_marginEnd="@dimen/av_category_minus_dp_10"
-                                app:categoryBackgroundTint="@color/blue_color_85"
+                                app:categoryBackgroundTint="@color/second_color_85"
                                 app:categoryIcon="@mipmap/shrimp"
                                 app:layout_constraintEnd_toStartOf="@+id/categoryMeat"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -174,7 +174,7 @@
                                 android:layout_marginStart="@dimen/common_dp_15"
                                 android:contentDescription="@string/description_left_arrow"
                                 android:onClick="@{() -> activity.onBackPressed()}"
-                                android:src="@drawable/ic_left_arrow_white"
+                                android:src="@drawable/ic_left_arrow"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
