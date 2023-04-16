@@ -106,7 +106,7 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <kr.kro.fatcats.allerview.ui.widget.AVCategoryLabel
-                                android:id="@+id/categoryNuts"
+                                android:id="@+id/categoryGrain"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="@dimen/av_category_minus_dp_10"
@@ -119,16 +119,18 @@
                                 android:id="@+id/categoryMeat"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                app:layout_goneMarginEnd="0dp"
                                 android:layout_marginEnd="@dimen/av_category_minus_dp_10"
                                 app:categoryBackgroundTint="@color/red_color_90"
                                 app:categoryIcon="@mipmap/beef"
-                                app:layout_constraintEnd_toStartOf="@+id/categoryNuts"
+                                app:layout_constraintEnd_toStartOf="@+id/categoryGrain"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <kr.kro.fatcats.allerview.ui.widget.AVCategoryLabel
                                 android:id="@+id/categorySeafood"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                app:layout_goneMarginEnd="0dp"
                                 android:layout_marginEnd="@dimen/av_category_minus_dp_10"
                                 app:categoryBackgroundTint="@color/blue_color_85"
                                 app:categoryIcon="@mipmap/shrimp"
@@ -146,9 +148,9 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="@id/clLabel"
                             app:layout_constraintTop_toBottomOf="@+id/clLabel"
-                            tools:text="매일 맛있는 신태양 초 고추장"
-                            tools:textColor="@color/white"
-                            tools:textStyle="bold" />
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            tools:text="매일 맛있는 신태양 초 고추장" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
