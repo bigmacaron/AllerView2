@@ -16,15 +16,33 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
+
             <ImageView
+                android:id="@+id/ivArrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src=""
-                />
+                android:layout_marginStart="@dimen/common_dp_15"
+                android:contentDescription="@string/description_left_arrow"
+                android:src="@drawable/ic_left_arrow_theme"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <!-- 임시 코드 -->
+            <TextView
+                android:id="@+id/tvBarcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_dp_20"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivArrow"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="123123123"
+                tools:textColor="@color/text_color" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <TextView
             android:id="@+id/textView"
