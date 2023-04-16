@@ -91,7 +91,7 @@ class MainViewModel @Inject constructor(
         val url = BuildConfig.BASE_URL+NetworkModule.C002+"${if (request.isFoodName) PRDLST_NM else PRDLST_REPORT_NO}=${request.foodParameter}"
         val foodCodeInfo = productRepository.getFoodItemRawMaterialInfoAsync(url).await()
         foodCodeInfo.C002.row?.let {
-            LogUtil.d(LogUtil.DEBUG_LEVEL_2,"getFoodNameLikedRawInfo : $it")
+            LogUtil.d(LogUtil.DEBUG_LEVEL_2,"Request Event : $it")
         } ?: run {
             setRequestEvent(Request.Toast(resId = null, foodCodeInfo.C002.RESULT.MSG))
         }

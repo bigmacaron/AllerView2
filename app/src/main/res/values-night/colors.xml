@@ -9,9 +9,11 @@
     <color name="second_color_85">#D91B8EF2</color>
     <color name="third_color_85">#D9FF00B8</color>
 
-    <color name="red_color_90">#E6FF0303</color>
-    <color name="green_color_90">#E607DD10</color>
-
+    <color name="fix_red_color_90">#E6FF0303</color>
+    <color name="fix_green_color_90">#E607DD10</color>
+    <color name="fix_blue_color_90">#D91B8EF2</color>
+    <color name="fix_yellow_color_90">#D9FFA600</color>
+    <color name="fix_pink_color_90">#D9FF00B8</color>
 
 </resources>
 

@@ -54,7 +54,6 @@
                             android:layout_marginTop="@dimen/common_dp_20"
                             android:background="@{viewModel.isWaringLabel() ? @drawable/background_red_rectnagle : @drawable/background_green_rectnagle}"
                             android:paddingHorizontal="@dimen/common_dp_10"
-                            android:paddingVertical="@dimen/common_dp_10"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             tools:background="@drawable/background_red_rectnagle">
@@ -62,7 +61,7 @@
                             <ImageView
                                 android:id="@+id/ivLabel"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="0dp"
                                 android:contentDescription="@string/waring"
                                 android:src="@{viewModel.isWaringLabel() ? @drawable/ic_warning : @drawable/ic_safety}"
                                 app:layout_constraintBottom_toBottomOf="parent"
@@ -70,19 +69,19 @@
                                 app:layout_constraintTop_toTopOf="parent"
                                 tools:src="@drawable/ic_warning" />
 
-                            <TextView
+                             <TextView
                                 android:id="@+id/tvLabel"
                                 android:layout_width="0dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="0dp"
                                 android:gravity="center"
                                 android:text="@{viewModel.isWaringLabel() ? @string/waring : @string/safety}"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/common_dp_16"
                                 android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintBottom_toBottomOf="@+id/ivLabel"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toEndOf="@id/ivLabel"
-                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/ivLabel"
                                 tools:text="주의" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -100,7 +99,7 @@
                                 android:id="@+id/categoryFruit"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:categoryBackgroundTint="@color/third_color_85"
+                                app:categoryBackgroundTint="@color/fix_pink_color_90"
                                 app:categoryIcon="@mipmap/peach"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -110,7 +109,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="@dimen/av_category_minus_dp_10"
-                                app:categoryBackgroundTint="@color/second_color_85"
+                                app:categoryBackgroundTint="@color/fix_yellow_color_90"
                                 app:categoryIcon="@mipmap/peanut"
                                 app:layout_constraintEnd_toStartOf="@+id/categoryFruit"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -121,7 +120,7 @@
                                 android:layout_height="wrap_content"
                                 app:layout_goneMarginEnd="0dp"
                                 android:layout_marginEnd="@dimen/av_category_minus_dp_10"
-                                app:categoryBackgroundTint="@color/red_color_90"
+                                app:categoryBackgroundTint="@color/fix_red_color_90"
                                 app:categoryIcon="@mipmap/beef"
                                 app:layout_constraintEnd_toStartOf="@+id/categoryGrain"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -132,7 +131,7 @@
                                 android:layout_height="wrap_content"
                                 app:layout_goneMarginEnd="0dp"
                                 android:layout_marginEnd="@dimen/av_category_minus_dp_10"
-                                app:categoryBackgroundTint="@color/second_color_85"
+                                app:categoryBackgroundTint="@color/fix_blue_color_90"
                                 app:categoryIcon="@mipmap/shrimp"
                                 app:layout_constraintEnd_toStartOf="@+id/categoryMeat"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -148,7 +147,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="@id/clLabel"
                             app:layout_constraintTop_toBottomOf="@+id/clLabel"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textStyle="bold"
                             tools:text="매일 맛있는 신태양 초 고추장" />
 
@@ -174,7 +173,7 @@
                                 android:layout_marginStart="@dimen/common_dp_15"
                                 android:contentDescription="@string/description_left_arrow"
                                 android:onClick="@{() -> activity.onBackPressed()}"
-                                android:src="@drawable/ic_left_arrow"
+                                android:src="@drawable/ic_left_arrow_white"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -186,11 +185,11 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="@dimen/common_dp_20"
                                 android:text="@{viewModel.barcode}"
+                                android:textColor="@color/black"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toEndOf="@+id/ivArrow"
                                 app:layout_constraintTop_toTopOf="parent"
-                                tools:text="123123123"
-                                tools:textColor="@color/white" />
+                                tools:text="123123123" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -199,6 +198,18 @@
                 </com.google.android.material.appbar.CollapsingToolbarLayout>
 
             </com.google.android.material.appbar.AppBarLayout>
+
+            <!-- 제품 정보 영역 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBar"
+                app:layout_constraintBottom_toBottomOf="parent" >
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

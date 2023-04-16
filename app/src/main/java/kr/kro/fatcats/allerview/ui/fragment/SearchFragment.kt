@@ -42,6 +42,13 @@ class SearchFragment : BaseFragment<FragmentSearchBinding,MainViewModel>() {
         AdRequest.Builder().build().run {
             viewBinding.adView.loadAd(this)
         }
+        viewBinding.clMoveSearchView.setOnClickListener {
+            Toast.makeText(requireContext(), "검색 버튼 클릭", Toast.LENGTH_SHORT).show()
+            val resultString = "8801062870455"
+            viewModel.setBarcode(resultString)
+            viewModel.setRequestEvent(Request.BarcodeLiked(resultString))
+            viewModel.moveBarcodeResultFragment()
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
