@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="text_color">#FF000000</color>
+    <color name="text_color">#FFFFFFFF</color>
 
-    <color name="background">#FFFFFFFF</color>
-    <color name="button">#FFEAEAEA</color>
-    <color name="primary_85">#D9FF5731</color>
-    <color name="second_color_85">#D9FFA600</color>
-    <color name="third_color_85">#D9FF0303</color>
+    <color name="background">#FF1E272C</color>
+    <color name="button">#FF3A434A</color>
+    <color name="primary_85">#D90F8C5C</color>
+    <color name="second_color_85">#D91B8EF2</color>
+    <color name="third_color_85">#D9FF00B8</color>
 
     <color name="red_color_90">#E6FF0303</color>
     <color name="green_color_90">#E607DD10</color>
