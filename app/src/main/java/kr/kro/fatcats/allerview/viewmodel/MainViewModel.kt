@@ -12,6 +12,7 @@ import kr.kro.fatcats.allerview.BuildConfig
 import kr.kro.fatcats.allerview.di.NetworkModule
 import kr.kro.fatcats.allerview.di.annotations.IoDispatcher
 import kr.kro.fatcats.allerview.model.event.Request
+import kr.kro.fatcats.allerview.model.foodInfo.Row
 import kr.kro.fatcats.allerview.model.local.FragmentSet
 import kr.kro.fatcats.allerview.model.local.room.entity.Food
 import kr.kro.fatcats.allerview.repository.ProductRepository
@@ -40,6 +41,9 @@ class MainViewModel @Inject constructor(
     private val _isWaringLabel = MutableStateFlow<Boolean?>(null)
     val isWaringLabel = _isWaringLabel.asStateFlow()
 
+    private val _foodInformation = MutableStateFlow<Row?>(null)
+    val foodInformation = _foodInformation.asStateFlow()
+
     /*
     * Methods
     * */
@@ -47,7 +51,7 @@ class MainViewModel @Inject constructor(
         setFragment(FragmentSet.MainFragment)
     }
 
-    fun moveBarcodeResultFragment() {
+    private fun moveBarcodeResultFragment() {
         setFragment(FragmentSet.BarcodeResultFragment)
     }
 
@@ -92,9 +96,16 @@ class MainViewModel @Inject constructor(
         val foodCodeInfo = productRepository.getFoodItemRawMaterialInfoAsync(url).await()
         foodCodeInfo.C002.row?.let {
             LogUtil.d(LogUtil.DEBUG_LEVEL_2,"Request Event : $it")
+            setFoodInformation(it[0])
+            moveBarcodeResultFragment()
         } ?: run {
             setRequestEvent(Request.Toast(resId = null, foodCodeInfo.C002.RESULT.MSG))
         }
+    }
+
+    /**  ------------------------Result--------------------------------- */
+    private suspend fun setFoodInformation(result: Row) {
+        _foodInformation.emit(result)
     }
 
     /**  ------------------------Room--------------------------------- */

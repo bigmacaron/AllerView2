@@ -45,9 +45,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding,MainViewModel>() {
         viewBinding.clMoveSearchView.setOnClickListener {
             Toast.makeText(requireContext(), "검색 버튼 클릭", Toast.LENGTH_SHORT).show()
             val resultString = "8801062870455"
+            // TODO NetWork 체크 및 예외 처리 필요
             viewModel.setBarcode(resultString)
             viewModel.setRequestEvent(Request.BarcodeLiked(resultString))
-            viewModel.moveBarcodeResultFragment()
         }
     }
 
@@ -69,7 +69,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding,MainViewModel>() {
             val resultString = result.text
             viewModel.setBarcode(resultString)
             viewModel.setRequestEvent(Request.BarcodeLiked(resultString))
-            viewModel.moveBarcodeResultFragment()
+//            viewModel.moveBarcodeResultFragment()
         }
     }
 

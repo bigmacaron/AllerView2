@@ -4,11 +4,13 @@
     <string name="show_list">리스트보기</string>
     <string name="waring">주의</string>
     <string name="safety">안전</string>
+    <string name="type">유형</string>
+    <string name="business_name">업소명</string>
+    <string name="raw_materials_name">원재료</string>
 
     <string name="description_symbol">심볼</string>
     <string name="description_left_arrow">왼쪽 화살표</string>
     <string name="description_category">카테고리</string>
-
 
 <!--Food Arrays-->
     <string-array name = "string_food_list">

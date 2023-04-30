@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.RecyclerView
-import kr.kro.fatcats.allerview.databinding.LayoutItemBinding
+import kr.kro.fatcats.allerview.databinding.LayoutCheckItemBinding
 
 
 class MyAllergyCheckRVAdapter<T>() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
@@ -21,7 +21,7 @@ class MyAllergyCheckRVAdapter<T>() : RecyclerView.Adapter<RecyclerView.ViewHolde
         notifyDataSetChanged() // todo
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = LayoutItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = LayoutCheckItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -51,6 +51,6 @@ class MyAllergyCheckRVAdapter<T>() : RecyclerView.Adapter<RecyclerView.ViewHolde
         holder?.binding?.executePendingBindings()
     }
 
-    class ViewHolder(val binding: LayoutItemBinding) : RecyclerView.ViewHolder(binding.root){}
+    class ViewHolder(val binding: LayoutCheckItemBinding) : RecyclerView.ViewHolder(binding.root){}
 
 }
