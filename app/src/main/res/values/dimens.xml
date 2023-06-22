@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="common_dp_0.1">0.1dp</dimen>
-    <dimen name="common_dp_5">5dp</dimen>
-    <dimen name="common_dp_10">10dp</dimen>
-    <dimen name="common_dp_12">12dp</dimen>
-    <dimen name="common_dp_15">15dp</dimen>
-    <dimen name="common_dp_16">16dp</dimen>
-    <dimen name="common_dp_20">20dp</dimen>
-    <dimen name="common_dp_24">24dp</dimen>
-    <dimen name="common_dp_30">30dp</dimen>
-    <dimen name="common_dp_40">40dp</dimen>
-    <dimen name="common_dp_100">100dp</dimen>
-    <dimen name="common_dp_200">200dp</dimen>
-    <dimen name="common_dp_300">300dp</dimen>
     <dimen name="av_btn_base_width">130dp</dimen>
     <dimen name="av_btn_base_height">180dp</dimen>
     <dimen name="av_category_minus_dp_10">-10dp</dimen>
+
 </resources>

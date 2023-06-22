@@ -19,9 +19,9 @@
             android:id="@+id/clSearchBar"
             android:layout_width="0dp"
             android:layout_height="?attr/actionBarSize"
-            android:layout_marginTop="@dimen/common_dp_20"
+            android:layout_marginTop="20dp"
             android:background="@android:color/transparent"
-            android:paddingHorizontal="@dimen/common_dp_15"
+            android:paddingHorizontal="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -54,7 +54,7 @@
                     android:inputType="text"
                     android:textColor="@color/black"
                     android:textCursorDrawable="@null"
-                    android:textSize="@dimen/common_dp_15" />
+                    android:textSize="15dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,9 +75,9 @@
         <com.journeyapps.barcodescanner.DecoratedBarcodeView
             android:id="@+id/barcodeView"
             android:layout_width="0dp"
-            android:layout_height="@dimen/common_dp_300"
-            android:paddingHorizontal="@dimen/common_dp_15"
-            android:layout_marginTop="@dimen/common_dp_30"
+            android:layout_height="300dp"
+            android:paddingHorizontal="15dp"
+            android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/clSearchBar" />
@@ -87,7 +87,7 @@
             android:id="@+id/btnMyAllergy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/common_dp_30"
+            android:layout_marginStart="30dp"
             android:onClick="@{()->viewModel.moveAllergyCheckFragment()}"
             app:layout_constraintBottom_toTopOf="@+id/adView"
             app:layout_constraintStart_toStartOf="parent"
@@ -101,7 +101,7 @@
             android:id="@+id/btnShowList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/common_dp_30"
+            android:layout_marginEnd="30dp"
             app:layout_constraintBottom_toTopOf="@+id/adView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/barcodeView"

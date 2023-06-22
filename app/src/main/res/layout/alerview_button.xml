@@ -11,8 +11,8 @@
         android:layout_height="@dimen/av_btn_base_height"
         android:alpha="0.85"
         android:background="@drawable/background_rectnagle"
-        android:paddingHorizontal="@dimen/common_dp_20"
-        android:paddingVertical="@dimen/common_dp_30"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -32,10 +32,10 @@
             android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/common_dp_15"
+            android:layout_marginTop="15dp"
             android:ellipsize="end"
             android:gravity="center"
-            android:textSize="@dimen/common_dp_16"
+            android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivIcon"

@@ -39,18 +39,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="?attr/actionBarSize"
-                    android:paddingBottom="@dimen/common_dp_20"
+                    android:paddingBottom="20dp"
                     app:layout_collapseMode="parallax">
 
                     <!-- 알러지 알림 주의 -->
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/clLabel"
-                        android:layout_width="@dimen/common_dp_100"
-                        android:layout_height="@dimen/common_dp_40"
-                        android:layout_marginStart="@dimen/common_dp_24"
-                        android:layout_marginTop="@dimen/common_dp_20"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="20dp"
                         android:background="@{viewModel.isWaringLabel() ? @drawable/background_red_rectnagle : @drawable/background_green_rectnagle}"
-                        android:paddingHorizontal="@dimen/common_dp_10"
+                        android:paddingHorizontal="10dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:background="@drawable/background_red_rectnagle">
@@ -73,7 +73,7 @@
                             android:gravity="center"
                             android:text="@{viewModel.isWaringLabel() ? @string/waring : @string/safety}"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/common_dp_16"
+                            android:textSize="16dp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="@+id/ivLabel"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -87,8 +87,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/common_dp_20"
-                        android:layout_marginEnd="@dimen/common_dp_20"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
@@ -139,7 +139,7 @@
                         android:id="@+id/tvProductName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/common_dp_20"
+                        android:layout_marginTop="20dp"
                         android:maxLines="1"
                         android:text="@{viewModel.foodInformation.PRDLST_NM}"
                         android:textColor="@color/black"
@@ -169,7 +169,7 @@
                             android:id="@+id/ivArrow"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/common_dp_15"
+                            android:layout_marginStart="15dp"
                             android:contentDescription="@string/description_left_arrow"
                             android:onClick="@{() -> activity.onBackPressed()}"
                             android:src="@drawable/ic_left_arrow_white"
@@ -182,7 +182,7 @@
                             android:id="@+id/tvBarcode"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/common_dp_20"
+                            android:layout_marginStart="20dp"
                             android:text="@{viewModel.barcode}"
                             android:textColor="@color/black"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -207,14 +207,14 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="@dimen/common_dp_24">
+                android:paddingHorizontal="24dp">
 
                 <!-- 유형 -->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/clType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/common_dp_30"
+                    android:layout_marginTop="30dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -233,7 +233,7 @@
                         android:id="@+id/tvTypeContent"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/common_dp_15"
+                        android:layout_marginTop="15dp"
                         android:ellipsize="end"
                         android:maxLines="1"
                         android:text="@{viewModel.foodInformation.PRDLST_DCNM}"
@@ -251,7 +251,7 @@
                     android:id="@+id/clBusinessName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/common_dp_20"
+                    android:layout_marginTop="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/clType">
 
@@ -270,7 +270,7 @@
                         android:id="@+id/tvBusinessNameContent"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/common_dp_15"
+                        android:layout_marginTop="15dp"
                         android:ellipsize="end"
                         android:maxLines="1"
                         android:text="@{viewModel.foodInformation.BSSH_NM}"
@@ -288,7 +288,7 @@
                     android:id="@+id/clRawMaterials"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/common_dp_20"
+                    android:layout_marginTop="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/clBusinessName">
 
@@ -307,7 +307,7 @@
                         android:id="@+id/tvRawMaterialsContent"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/common_dp_15"
+                        android:layout_marginTop="15dp"
                         android:ellipsize="end"
                         android:text="@{viewModel.foodInformation.RAWMTRL_NM}"
                         android:textColor="@color/text_color"

@@ -5,10 +5,10 @@
     <solid android:color="@color/primary_85"/>
 
     <size
-        android:width="@dimen/common_dp_24"
-        android:height="@dimen/common_dp_24" />
+        android:width="24dp"
+        android:height="24dp" />
 
-    <corners android:bottomLeftRadius="@dimen/common_dp_10"
-        android:bottomRightRadius="@dimen/common_dp_10"/>
+    <corners android:bottomLeftRadius="10dp"
+        android:bottomRightRadius="10dp"/>
 
 </shape>
