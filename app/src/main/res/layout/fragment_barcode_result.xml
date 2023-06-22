@@ -66,7 +66,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             tools:src="@drawable/ic_warning" />
 
-                        <TextView
+                        <kr.kro.fatcats.allerview.ui.widget.AVTextView
                             android:id="@+id/tvLabel"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
@@ -135,7 +135,7 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <TextView
+                    <kr.kro.fatcats.allerview.ui.widget.AVTextView
                         android:id="@+id/tvProductName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -178,7 +178,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <!-- 임시 코드 -->
-                        <TextView
+                        <kr.kro.fatcats.allerview.ui.widget.AVTextView
                             android:id="@+id/tvBarcode"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -218,7 +218,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
+                    <kr.kro.fatcats.allerview.ui.widget.AVTextView
                         android:id="@+id/tvTypeTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -229,7 +229,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
+                    <kr.kro.fatcats.allerview.ui.widget.AVTextView
                         android:id="@+id/tvTypeContent"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -255,7 +255,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/clType">
 
-                    <TextView
+                    <kr.kro.fatcats.allerview.ui.widget.AVTextView
                         android:id="@+id/tvBusinessNameTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -266,7 +266,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
+                    <kr.kro.fatcats.allerview.ui.widget.AVTextView
                         android:id="@+id/tvBusinessNameContent"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -292,7 +292,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/clBusinessName">
 
-                    <TextView
+                    <kr.kro.fatcats.allerview.ui.widget.AVTextView
                         android:id="@+id/tvRawMaterialsTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -303,7 +303,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
+                    <kr.kro.fatcats.allerview.ui.widget.AVTextView
                         android:id="@+id/tvRawMaterialsContent"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"

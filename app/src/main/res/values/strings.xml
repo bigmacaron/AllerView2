@@ -12,6 +12,16 @@
     <string name="description_left_arrow">왼쪽 화살표</string>
     <string name="description_category">카테고리</string>
 
+    <string name="my_allergy_check_title">나의 알러지</string>
+    <string name="my_allergy_check_dec">확인 하고 싶은 알러지를 선택하세요</string>
+
+    <string name="search_hint"> 제품을 검색해보세요!</string>
+
+
+
+
+
+
 <!--Food Arrays-->
     <string-array name = "string_food_list">
         <item>메밀</item>

@@ -33,6 +33,28 @@ class MyAllergyCheckFragment : BaseFragment<FragmentMyAllergyCheckBinding,MainVi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setRecyclerViewAdapter()
+        setCoordinator()
+    }
+
+    private fun setCoordinator() {
+
+        viewBinding?.collapsingToolbarLayout?.apply {
+            setExpandedTitleTextAppearance(R.style.expandedTitle)
+            setCollapsedTitleTextAppearance(R.style.collapsingTitle)
+        }
+        viewBinding?.collapsingAppBarLayout?.addOnOffsetChangedListener { appBar, verticalOffset ->
+            appBar.clipChildren = Math.abs(verticalOffset) > 83
+            if(Math.abs(verticalOffset) in 10..84){
+                viewBinding?.layoutBox?.background?.alpha = 840/Math.abs(verticalOffset)+30
+            }else{
+                viewBinding?.layoutBox?.background?.alpha = 100
+            }
+            if(appBar.clipChildren){
+                viewBinding?.layoutBox?.visibility = View.GONE
+            }else{
+                viewBinding?.layoutBox?.visibility = View.VISIBLE
+            }
+        }
     }
 
     private fun setRecyclerViewAdapter(){
