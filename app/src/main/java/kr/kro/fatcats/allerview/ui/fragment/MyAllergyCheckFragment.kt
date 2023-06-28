@@ -45,7 +45,6 @@ class MyAllergyCheckFragment : BaseFragment<FragmentMyAllergyCheckBinding,MainVi
 
     fun clickConfirm(){
         lifecycleScope.launch(Dispatchers.IO){
-            viewModel.resetCheckedData()
             recyclerViewAdapter?.getItem()?.forEach {
                 viewModel.updateMyFood(it)
             }
