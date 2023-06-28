@@ -6,7 +6,7 @@
     <data>
         <variable
             name="checkData"
-            type="kr.kro.fatcats.allerview.model.local.food.FoodData" />
+            type="kr.kro.fatcats.allerview.model.local.room.entity.MyFoodData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

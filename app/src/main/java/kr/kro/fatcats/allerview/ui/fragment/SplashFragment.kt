@@ -11,10 +11,12 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kr.kro.fatcats.allerview.R
 import kr.kro.fatcats.allerview.databinding.FragmentSplashBinding
+import kr.kro.fatcats.allerview.model.local.room.entity.MyFoodData
 import kr.kro.fatcats.allerview.viewmodel.MainViewModel
 import kr.kro.fatcats.permissionmodule.PermissionListener
 import kr.kro.fatcats.permissionmodule.builder.Permission
@@ -54,6 +56,12 @@ class SplashFragment : BaseFragment<FragmentSplashBinding,MainViewModel>() {
                 checkPermission()
             }
         }
+        lifecycleScope.launch(Dispatchers.IO) {
+            setFoodList()
+            if(viewModel.getMyFood().isEmpty()){
+                setMyFood()
+            }
+        }
     }
     private fun checkPermission(){
         Permission.create()
@@ -61,5 +69,37 @@ class SplashFragment : BaseFragment<FragmentSplashBinding,MainViewModel>() {
             .setPermissions(Manifest.permission.CAMERA)
             .useDialog(true)
             .check()
+    }
+    private fun setFoodList(){
+        viewModel.foodKoreanNames = requireContext().resources.getStringArray(R.array.string_food_list)
+        viewModel.foodENGNames = requireContext().resources.getStringArray(R.array.string_food_list_eng)
+    }
+    private fun setMyFood(){
+        val foodKoreanNames = viewModel.foodKoreanNames
+        val foodENGNames = viewModel.foodENGNames
+        foodENGNames.forEachIndexed { index, englishName ->
+            viewModel.insertMyFood(
+                MyFoodData(
+                    englishName,
+                    foodKoreanNames[index],
+                    false,
+                    createWord(englishName)
+                )
+            )
+        }
+    }
+
+    private fun createWord(engName : String) : String{
+        val resourceId = requireContext().resources.getIdentifier(engName, "array", requireContext().packageName)
+        val words = requireContext().resources?.getStringArray(resourceId)
+        var temp = ""
+        words?.forEachIndexed { index, s ->
+            temp += if( words.lastIndex != index){
+                "$s@@"
+            }else{
+                s
+            }
+        }
+       return temp
     }
 }

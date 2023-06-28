@@ -6,16 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kr.kro.fatcats.allerview.R
 import kr.kro.fatcats.allerview.databinding.FragmentMyAllergyCheckBinding
-import kr.kro.fatcats.allerview.model.local.food.FoodData
+import kr.kro.fatcats.allerview.ui.activity.MainActivity
 import kr.kro.fatcats.allerview.ui.adapter.MyAllergyCheckRVAdapter
 import kr.kro.fatcats.allerview.viewmodel.MainViewModel
 
 
 class MyAllergyCheckFragment : BaseFragment<FragmentMyAllergyCheckBinding,MainViewModel>() {
 
-    private val myAllergyCheckRVAdapter = MyAllergyCheckRVAdapter<FoodData>()
+    private var recyclerViewAdapter : MyAllergyCheckRVAdapter? = null
 
     override fun viewModel(): MainViewModel {
         val lazy: Lazy<MainViewModel> = viewModels(ownerProducer = { requireActivity() })
@@ -28,6 +33,8 @@ class MyAllergyCheckFragment : BaseFragment<FragmentMyAllergyCheckBinding,MainVi
 
     override fun initData(viewBinding: FragmentMyAllergyCheckBinding) {
         viewBinding.viewModel = viewModel
+        viewBinding.activity = requireActivity() as MainActivity
+        viewBinding.fragment = this
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,8 +43,19 @@ class MyAllergyCheckFragment : BaseFragment<FragmentMyAllergyCheckBinding,MainVi
         setCoordinator()
     }
 
-    private fun setCoordinator() {
+    fun clickConfirm(){
+        lifecycleScope.launch(Dispatchers.IO){
+            viewModel.resetCheckedData()
+            recyclerViewAdapter?.getItem()?.forEach {
+                viewModel.updateMyFood(it)
+            }
+            withContext(Dispatchers.Main){
+                activity?.onBackPressed()
+            }
+        }
+    }
 
+    private fun setCoordinator() {
         viewBinding?.collapsingToolbarLayout?.apply {
             setExpandedTitleTextAppearance(R.style.expandedTitle)
             setCollapsedTitleTextAppearance(R.style.collapsingTitle)
@@ -58,18 +76,17 @@ class MyAllergyCheckFragment : BaseFragment<FragmentMyAllergyCheckBinding,MainVi
     }
 
     private fun setRecyclerViewAdapter(){
-
-        viewBinding?.recyclerview?.apply {
-            adapter = myAllergyCheckRVAdapter
+        lifecycleScope.launch {
+            recyclerViewAdapter =  MyAllergyCheckRVAdapter(
+                withContext(Dispatchers.IO){
+                    viewModel.getMyFood()
+                }
+            )
+            viewBinding?.recyclerview?.apply {
+                adapter = recyclerViewAdapter
+                layoutManager = GridLayoutManager(requireContext(), 3)
+            }
         }
-
-        val foodArray = context?.resources?.getStringArray(R.array.string_food_list)
-        val foodDataList = arrayListOf<FoodData>()
-        foodArray?.map {
-            foodDataList.add(FoodData(it))
-        }
-        myAllergyCheckRVAdapter.setItems(foodDataList)
-
     }
 
 }

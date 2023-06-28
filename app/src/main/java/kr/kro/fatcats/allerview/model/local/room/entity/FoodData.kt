@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class Food(
+data class FoodData(
     @PrimaryKey val barcode: Long,
     @ColumnInfo(name = "PRDLST_REPORT_NO") val reportNo: String?, //PRDLST_REPORT_NO 품목제조번호
     @ColumnInfo(name = "PRMS_DT") val reportDate: String?, //PRMS_DT 보고일자
@@ -15,10 +15,3 @@ data class Food(
     @ColumnInfo(name = "PRDLST_DCNM") val category: String?, // PRDLST_DCNM 유형
     @ColumnInfo(name = "RAWMTRL_NM") val materials: String?, // RAWMTRL_NM 원재료명
 )
-
-
-
-
-
-
-

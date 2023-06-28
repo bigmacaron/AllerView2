@@ -14,7 +14,8 @@ import kr.kro.fatcats.allerview.di.annotations.IoDispatcher
 import kr.kro.fatcats.allerview.model.event.Request
 import kr.kro.fatcats.allerview.model.foodInfo.Row
 import kr.kro.fatcats.allerview.model.local.FragmentSet
-import kr.kro.fatcats.allerview.model.local.room.entity.Food
+import kr.kro.fatcats.allerview.model.local.room.entity.FoodData
+import kr.kro.fatcats.allerview.model.local.room.entity.MyFoodData
 import kr.kro.fatcats.allerview.repository.ProductRepository
 import kr.kro.fatcats.allerview.repository.RoomRepository
 import kr.kro.fatcats.allerview.util.LogUtil
@@ -26,6 +27,9 @@ class MainViewModel @Inject constructor(
     private val productRepository: ProductRepository,
     private val roomRepository : RoomRepository
 ) : BaseViewModel() {
+
+    var foodKoreanNames : Array<String> = arrayOf("")
+    var foodENGNames : Array<String> = arrayOf("")
 
     /*
     * Properties
@@ -44,6 +48,8 @@ class MainViewModel @Inject constructor(
     private val _foodInformation = MutableStateFlow<Row?>(null)
     val foodInformation = _foodInformation.asStateFlow()
 
+    private val _myFoodData = MutableStateFlow<List<MyFoodData>?>(null)
+    val myFoodData = _myFoodData.asStateFlow()
     /*
     * Methods
     * */
@@ -109,19 +115,34 @@ class MainViewModel @Inject constructor(
     }
 
     /**  ------------------------Room--------------------------------- */
+    /*음식 정보 */
     //바코드로 룸 정보 조회
-    suspend fun importToBarcode(barcode : Long) : Food?{
+    suspend fun importToBarcode(barcode : Long) : FoodData?{
         return roomRepository.importToBarcode(barcode)
     }
     //식품명과, 회사명으로 룸 정보 조회
-    suspend fun findByNameAndCompany(name: String, company: String) : Food?{
+    suspend fun findByNameAndCompany(name: String, company: String) : FoodData?{
         return roomRepository.findByNameAndCompany(name,company)
     }
     //룸에 정보 입력
-    fun insertFood(food : Food) {
+    fun insertFood(food : FoodData) {
         viewModelScope.launch(ioDispatcher) {
             roomRepository.insertFood(food)
         }
+    }
+    /* *********************** myFood**************/
+
+    fun resetCheckedData(){
+        roomRepository.resetCheckedData()
+    }
+    suspend fun getMyFood() : ArrayList<MyFoodData>{
+        return roomRepository.getMyFood()
+    }
+    fun insertMyFood(myFoodData : MyFoodData) {
+        roomRepository.insertMyFood(myFoodData)
+    }
+    fun updateMyFood(myFoodData : MyFoodData) {
+        roomRepository.updateMyFood(myFoodData)
     }
 
     /**  --------------------companion object---------------------- */

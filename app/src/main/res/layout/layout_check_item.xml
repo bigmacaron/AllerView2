@@ -5,28 +5,54 @@
 
     <data>
         <variable
-            name="checkData"
-            type="kr.kro.fatcats.allerview.model.local.food.FoodData" />
+            name="data"
+            type="kr.kro.fatcats.allerview.model.local.room.entity.MyFoodData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/background">
-<!--        <ImageView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"/>-->
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:background="@drawable/background_check_button_rectnagle"
+        android:focusable="true"
+        android:clickable="true"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginBottom="30dp"
+        app:setCheckBoxRootViewChange="@{data.checked}"
+        >
 
+        <CheckBox
+            android:id="@+id/myCheckBox"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/selector_search_check_box"
+            android:button="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <kr.kro.fatcats.allerview.ui.widget.AVImageView
+            android:id="@+id/AVImageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:setImageByGlide="@{data.englishName}"
+            tools:src="@mipmap/abalone" />
 
         <kr.kro.fatcats.allerview.ui.widget.AVTextView
             android:id="@+id/textView"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:text="@{data.koreanName}"
+            android:maxLines="1"
+            android:textSize="16dp"
             android:textAlignment="center"
-            android:text="@{checkData.koreanName}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:text="asdfjklasd;f" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

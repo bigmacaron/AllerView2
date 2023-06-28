@@ -2,13 +2,16 @@ package kr.kro.fatcats.allerview.model.local.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import kr.kro.fatcats.allerview.model.local.room.dao.FoodDao
-import kr.kro.fatcats.allerview.model.local.room.entity.Food
+import kr.kro.fatcats.allerview.model.local.room.dao.FoodListDao
+import kr.kro.fatcats.allerview.model.local.room.dao.MyFoodDao
+import kr.kro.fatcats.allerview.model.local.room.entity.FoodData
+import kr.kro.fatcats.allerview.model.local.room.entity.MyFoodData
 
-@Database(entities = [Food::class], version = 1)
+@Database(entities = [FoodData::class,MyFoodData::class], version = 1)
 abstract class AppDataBase : RoomDatabase() {
 
-    abstract fun foodDao() : FoodDao
+    abstract fun foodListDao() : FoodListDao
+    abstract fun myFoodListDao() : MyFoodDao
 
 //    companion object {
 //        private var INSTANCE: AppDataBase? = null

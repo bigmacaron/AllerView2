@@ -1,56 +1,57 @@
 package kr.kro.fatcats.allerview.ui.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.databinding.library.baseAdapters.BR
+import android.widget.CheckBox
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.children
 import androidx.recyclerview.widget.RecyclerView
 import kr.kro.fatcats.allerview.databinding.LayoutCheckItemBinding
+import kr.kro.fatcats.allerview.model.local.room.entity.MyFoodData
+import kr.kro.fatcats.allerview.util.LogUtil
 
 
-class MyAllergyCheckRVAdapter<T>() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class MyAllergyCheckRVAdapter(private val foodData: ArrayList<MyFoodData>) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
-    private val items = arrayListOf<T>()
-    fun setItem(item : T){
-        items.add(item)
-        notifyDataSetChanged() // todo
-    }
-
-    fun setItems(item : ArrayList<T>){
-        items.addAll(item)
-        notifyDataSetChanged() // todo
-    }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = LayoutCheckItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(binding)
-    }
-
-    override fun getItemCount(): Int {
-        Log.e("Adapter", "getItemCount: ${items.size} ")
-        return items.size
-    }
-
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        Log.e("Adapter", "onBindViewHolder: ${items[position]} : Position $position ")
-        val setItem: T = items[position]
-
-        val holder =  when(holder){
-            is ViewHolder ->{
-                holder
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return CheckListItemHolder(LayoutCheckItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)).apply {
+            binding.root.setOnClickListener { const ->
+                foodData[adapterPosition].let {
+                    foodData[adapterPosition] = foodData[adapterPosition].copy(
+                        it.englishName,
+                        it.koreanName,
+                        it.isChecked.not(),
+                        it.words
+                    )
+                }
+                notifyItemChanged(adapterPosition)
             }
-            else -> {null}
         }
-//
-//        when(setItem){
-//            is MainModel ->{
-//
-//            }
-//        }
-
-        holder?.binding?.setVariable(BR.checkData, setItem)
-        holder?.binding?.executePendingBindings()
     }
 
-    class ViewHolder(val binding: LayoutCheckItemBinding) : RecyclerView.ViewHolder(binding.root){}
+    fun getItem() : ArrayList<MyFoodData>?{
+        return foodData
+    }
+    override fun getItemCount(): Int {
+        return foodData.size
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when (holder) {
+           is CheckListItemHolder ->{
+               holder.binding.data = foodData[position]
+               holder.binding.myCheckBox.isChecked = foodData[position].isChecked
+           }
+        }
+    }
+
+    class CheckListItemHolder(val binding: LayoutCheckItemBinding) : RecyclerView.ViewHolder(binding.root){}
 
 }

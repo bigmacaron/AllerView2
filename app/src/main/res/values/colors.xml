@@ -8,6 +8,7 @@
     <color name="primary_85">#D9FF5731</color>
     <color name="second_color_85">#D9FFA600</color>
     <color name="third_color_85">#D9FF0303</color>
+    <color name="reverse_primary_85">#D90F8C5C</color>
 
     <color name="fix_red_color_90">#E6FF0303</color>
     <color name="fix_green_color_90">#E607DD10</color>
@@ -15,6 +16,13 @@
     <color name="fix_yellow_color_85">#D9FFA600</color>
     <color name="fix_pink_color_85">#D9FF00B8</color>
     <color name="fix_light_color_85">#D9EAEAEA</color>
+
+    <color name="fix_primary_light_85">#D9FF5731</color>
+    <color name="fix_primary_dark_85">#D90F8C5C</color>
+
+
+    <color name="fix_white">#FFFFFFFF</color>
+    <color name="fix_black">#000000</color>
 
 
 

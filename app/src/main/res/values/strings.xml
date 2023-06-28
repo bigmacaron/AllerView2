@@ -17,6 +17,9 @@
 
     <string name="search_hint"> 제품을 검색해보세요!</string>
 
+    <string name="button_text_cancel">취소</string>
+    <string name="button_text_confirm">확인</string>
+
 
 
 
@@ -45,6 +48,29 @@
         <item>게</item>
         <item>오징어</item>
         <item>아황산</item>
+    </string-array>
+    <string-array name = "string_food_list_eng">
+        <item>buckwheat</item>
+        <item>wheat</item>
+        <item>soybean</item>
+        <item>walnut</item>
+        <item>peanut</item>
+        <item>egg</item>
+        <item>milk</item>
+        <item>chicken</item>
+        <item>beef</item>
+        <item>pork</item>
+        <item>peach</item>
+        <item>tomato</item>
+        <item>shrimp</item>
+        <item>mackerel</item>
+        <item>mussel</item>
+        <item>abalone</item>
+        <item>oyster</item>
+        <item>shellfish</item>
+        <item>crab</item>
+        <item>squid</item>
+        <item>sulfurousAcid</item>
     </string-array>
 
 <!--  Grain, // 곡물류  -->
@@ -222,6 +248,7 @@
 <!--    Etc //기타  -->
     <string-array name = "sulfurousAcid">
         <item>아황산</item>
+        <item>sulfurous acid</item>
         <item>sulfurousAcid</item>
         <item>설퍼러스애시드</item>
     </string-array>
