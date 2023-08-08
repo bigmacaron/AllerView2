@@ -8,6 +8,6 @@ sealed class FragmentSet(
 ) {
     object MainFragment : FragmentSet(R.id.searchFragment)
     object SplashFragment : FragmentSet(R.id.splashFragment)
-    object BarcodeResultFragment : FragmentSet(R.id.barcodeResultFragment)
+    object SearchResultFragment : FragmentSet(R.id.SearchResultFragment)
     object MyAllergyCheckFragment : FragmentSet(R.id.myAllergyCheckFragment)
 }

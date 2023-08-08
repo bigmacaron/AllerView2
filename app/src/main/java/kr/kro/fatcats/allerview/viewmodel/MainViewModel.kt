@@ -57,8 +57,8 @@ class MainViewModel @Inject constructor(
         setFragment(FragmentSet.MainFragment)
     }
 
-    private fun moveBarcodeResultFragment() {
-        setFragment(FragmentSet.BarcodeResultFragment)
+    private fun moveSearchResultFragment() {
+        setFragment(FragmentSet.SearchResultFragment)
     }
 
     fun moveAllergyCheckFragment() {
@@ -103,7 +103,7 @@ class MainViewModel @Inject constructor(
         foodCodeInfo.C002.row?.let {
             LogUtil.d(LogUtil.DEBUG_LEVEL_2,"Request Event : $it")
             setFoodInformation(it[0])
-            moveBarcodeResultFragment()
+            moveSearchResultFragment()
         } ?: run {
             setRequestEvent(Request.Toast(resId = null, foodCodeInfo.C002.RESULT.MSG))
         }

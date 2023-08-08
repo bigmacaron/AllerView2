@@ -12,14 +12,14 @@ import com.google.android.material.appbar.AppBarLayout
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kr.kro.fatcats.allerview.R
-import kr.kro.fatcats.allerview.databinding.FragmentBarcodeResultBinding
+import kr.kro.fatcats.allerview.databinding.FragmentSearchResultBinding
 import kr.kro.fatcats.allerview.ui.activity.MainActivity
 import kr.kro.fatcats.allerview.ui.listener.AppBarStateChangeListener
 import kr.kro.fatcats.allerview.util.LogUtil
 import kr.kro.fatcats.allerview.viewmodel.MainViewModel
 
 
-class BarcodeResultFragment : BaseFragment<FragmentBarcodeResultBinding,MainViewModel>() {
+class SearchResultFragment : BaseFragment<FragmentSearchResultBinding,MainViewModel>() {
 
     private val appBarStateChangeListener: AppBarStateChangeListener =
         object : AppBarStateChangeListener() {
@@ -45,11 +45,11 @@ class BarcodeResultFragment : BaseFragment<FragmentBarcodeResultBinding,MainView
         return lazy.value
     }
 
-    override fun inflate(layoutInflater: LayoutInflater, container: ViewGroup?, attachToRoot: Boolean): FragmentBarcodeResultBinding {
-        return DataBindingUtil.inflate(layoutInflater, R.layout.fragment_barcode_result, container, attachToRoot)
+    override fun inflate(layoutInflater: LayoutInflater, container: ViewGroup?, attachToRoot: Boolean): FragmentSearchResultBinding {
+        return DataBindingUtil.inflate(layoutInflater, R.layout.fragment_search_result, container, attachToRoot)
     }
 
-    override fun initData(viewBinding: FragmentBarcodeResultBinding) {
+    override fun initData(viewBinding: FragmentSearchResultBinding) {
         viewBinding.viewModel = viewModel
         viewBinding.activity  = requireActivity() as MainActivity // Todo onBackPressed 이벤트를 어떻게 처리할지 추후에 수정..
         viewBinding.appBar.addOnOffsetChangedListener(appBarStateChangeListener)

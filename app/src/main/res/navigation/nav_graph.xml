@@ -18,15 +18,15 @@
         tools:layout="@layout/fragment_splash" />
 
     <fragment
-        android:id="@+id/barcodeResultFragment"
-        android:name="kr.kro.fatcats.allerview.ui.fragment.BarcodeResultFragment"
+        android:id="@+id/SearchResultFragment"
+        android:name="kr.kro.fatcats.allerview.ui.fragment.SearchResultFragment"
         android:label="BarcodeResultFragment"
-        tools:layout="@layout/fragment_barcode_result" />
+        tools:layout="@layout/fragment_search_result" />
 
     <fragment
         android:id="@+id/myAllergyCheckFragment"
         android:name="kr.kro.fatcats.allerview.ui.fragment.MyAllergyCheckFragment"
         android:label="MyAllergyCheckFragment"
-        tools:layout="@layout/fragment_barcode_result" />
+        tools:layout="@layout/fragment_search_result" />
 
 </navigation>
